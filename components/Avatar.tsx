@@ -1,8 +1,9 @@
 /**
  * Avatar de Maru en estilo retrato plano/geométrico (de hombros para arriba).
  * Cabeza alargada con la cara partida en dos tonos, pelo corto marrón claro con flequillo,
- * pañuelito con nudo, anteojos redondos finos, ojos verde militar, septum y aros.
- * Animación: mira a un lado y al otro, parpadea, levanta las cejas y sonríe.
+ * pañuelito con nudo, anteojos redondos finos, ojos verde militar, septum y aros dorados,
+ * hombros descubiertos con los laurelitos tatuados en las clavículas.
+ * Animación: mira a un lado y al otro, inclina la cabeza, parpadea y levanta las cejas.
  */
 export default function Avatar({ className = "" }: { className?: string }) {
   const skin = "#f7d3bb";
@@ -11,11 +12,10 @@ export default function Avatar({ className = "" }: { className?: string }) {
   const hair = "#a57a52";
   const hairShade = "#8a633f";
   const ink = "#141414";
-  const navy = "#24283d";
-  const eye = "#56613a"; // verde militar
+    const eye = "#56613a"; // verde militar
 
   return (
-    <svg viewBox="45 38 310 310" preserveAspectRatio="xMidYMid slice" className={`avatar ${className}`} role="img" aria-label="Avatar de Maru">
+    <svg viewBox="28 30 344 344" preserveAspectRatio="xMidYMid slice" className={`avatar ${className}`} role="img" aria-label="Avatar de Maru">
       <defs>
         <clipPath id="av-face">
           <rect x="138" y="92" width="124" height="190" rx="60" />
@@ -25,14 +25,36 @@ export default function Avatar({ className = "" }: { className?: string }) {
       {/* fondo */}
       <rect x="0" y="0" width="400" height="400" fill="var(--blue)" />
 
-      {/* hombros: buzo en bloques */}
-      <path d="M60 400 L84 340 Q96 312 140 304 L200 300 L260 304 Q304 312 316 340 L340 400 Z" fill={navy} />
-      <path d="M200 300 L260 304 Q304 312 316 340 L340 400 L200 400 Z" fill={ink} opacity="0.55" />
-      <path d="M150 304 L200 372 L250 304 L232 300 L200 336 L168 300 Z" fill={ink} />
+      {/* hombros descubiertos (cara/cuerpo partidos en dos tonos) */}
+      <path d="M58 400 Q70 336 150 322 L172 300 H228 L250 322 Q330 336 342 400 Z" fill={skin} />
+      <path d="M200 300 H228 L250 322 Q330 336 342 400 H200 Z" fill={skinShade} />
+      <rect x="172" y="250" width="56" height="62" fill={skin} />
+      <rect x="200" y="250" width="28" height="62" fill={skinShade} />
+      <path d="M172 262 H228 V276 Q200 288 172 276 Z" fill={skinShade} opacity="0.7" />
 
-      {/* cuello */}
-      <rect x="172" y="250" width="56" height="62" fill={skinShade} />
-      <path d="M172 300 L200 336 L228 300 Z" fill={skinShade} />
+      {/* tatuajes de clavícula: dos laurelitos */}
+      <g fill="none" stroke={ink} strokeWidth="1.6" strokeLinecap="round">
+        <g className="av-laurel" transform="translate(0 -8)">
+          <path d="M138 346 Q156 334 176 336" />
+          <path d="M146 341 q-2 -8 4 -10 q2 7 -4 10 Z" />
+          <path d="M156 337 q-1 -8 5 -9 q1 7 -5 9 Z" />
+          <path d="M166 336 q0 -8 6 -8 q0 7 -6 8 Z" />
+          <path d="M150 340 q4 7 10 5 q-4 -6 -10 -5 Z" />
+          <path d="M161 337 q5 6 10 4 q-4 -6 -10 -4 Z" />
+        </g>
+        <g className="av-laurel" transform="translate(400 -8) scale(-1 1)">
+          <path d="M138 346 Q156 334 176 336" />
+          <path d="M146 341 q-2 -8 4 -10 q2 7 -4 10 Z" />
+          <path d="M156 337 q-1 -8 5 -9 q1 7 -5 9 Z" />
+          <path d="M166 336 q0 -8 6 -8 q0 7 -6 8 Z" />
+          <path d="M150 340 q4 7 10 5 q-4 -6 -10 -5 Z" />
+          <path d="M161 337 q5 6 10 4 q-4 -6 -10 -4 Z" />
+        </g>
+      </g>
+
+      {/* top con escote amplio (como el retrato de referencia) */}
+      <path d="M40 400 L46 344 Q200 372 354 344 L360 400 Z" fill="var(--red)" />
+      <path d="M200 358 Q280 356 354 344 L360 400 H200 Z" fill="#d93d16" />
 
       <g className="av-head">
         {/* orejas + aros */}
@@ -77,18 +99,14 @@ export default function Avatar({ className = "" }: { className?: string }) {
           <rect x="216" y="160" width="32" height="4" rx="2" fill={hairShade} />
         </g>
 
-        {/* ojos verde militar (miran y parpadean) */}
+        {/* ojos: puntito verde militar con línea de párpado (miran y parpadean) */}
         <g className="av-blink">
-          <circle cx="168" cy="186" r="9" fill="#fff" />
-          <circle cx="232" cy="186" r="9" fill="#fff" />
           <g className="av-eyes">
-            <circle cx="168" cy="186" r="6" fill={eye} />
-            <circle cx="232" cy="186" r="6" fill={eye} />
-            <circle cx="168" cy="186" r="2.6" fill={ink} />
-            <circle cx="232" cy="186" r="2.6" fill={ink} />
+            <circle cx="168" cy="188" r="5.5" fill={eye} />
+            <circle cx="232" cy="188" r="5.5" fill={eye} />
           </g>
-          <path d="M157 180 Q168 172 179 180" fill="none" stroke={ink} strokeWidth="2" strokeLinecap="round" />
-          <path d="M221 180 Q232 172 243 180" fill="none" stroke={ink} strokeWidth="2" strokeLinecap="round" />
+          <path d="M156 180 H180" stroke={ink} strokeWidth="2" strokeLinecap="round" />
+          <path d="M220 180 H244" stroke={ink} strokeWidth="2" strokeLinecap="round" />
         </g>
 
         {/* anteojos redondos finos */}
@@ -104,16 +122,14 @@ export default function Avatar({ className = "" }: { className?: string }) {
         <rect x="191" y="170" width="18" height="56" rx="9" fill={nose} />
 
         {/* septum */}
-        <circle cx="200" cy="232" r="5" fill="none" stroke="#a9aeb3" strokeWidth="2.4" />
+        <circle cx="200" cy="232" r="5" fill="none" stroke="var(--yellow)" strokeWidth="2.6" />
 
         {/* cachetes */}
         <circle cx="160" cy="226" r="12" fill="var(--red)" opacity="0.18" />
         <circle cx="240" cy="226" r="12" fill="var(--red)" opacity="0.18" />
 
-        {/* boca */}
-        <path className="av-smile" d="M184 250 Q200 260 216 250" fill="none" stroke={ink} strokeWidth="2.6" strokeLinecap="round" />
-        <path className="av-grin" d="M182 247 Q200 270 218 247 Z" fill="#c2412a" />
-        <path className="av-grin" d="M186 248 H214 Q211 254 200 254.5 Q189 254 186 248 Z" fill="#fff" />
+        {/* boca: una línea */}
+        <path d="M188 252 H212" stroke={ink} strokeWidth="2.6" strokeLinecap="round" />
       </g>
     </svg>
   );
