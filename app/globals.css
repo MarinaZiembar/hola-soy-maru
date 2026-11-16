@@ -1057,9 +1057,16 @@ main {
   overflow: visible;
 }
 
+.about .about-visual {
+  display: block;
+  aspect-ratio: 1;
+  border: 0;
+  overflow: hidden;
+}
+
 .av-head {
   transform-box: view-box;
-  transform-origin: 100px 150px;
+  transform-origin: 200px 300px;
   animation: avHead 9s var(--ease-io) infinite;
 }
 
@@ -2304,21 +2311,21 @@ main {
 
 @keyframes avHead {
   0%, 18%, 100% { transform: rotate(0deg); }
-  26%, 42% { transform: rotate(-5deg) translateX(-2px); }
+  26%, 42% { transform: rotate(-3deg) translateX(-3px); }
   52%, 58% { transform: rotate(0deg); }
-  66%, 84% { transform: rotate(5deg) translateX(2px); }
+  66%, 84% { transform: rotate(3deg) translateX(3px); }
 }
 
 @keyframes avLook {
   0%, 18%, 100% { transform: translateX(0); }
-  26%, 42% { transform: translateX(-4px); }
+  26%, 42% { transform: translateX(-3.5px); }
   52%, 58% { transform: translateX(0); }
-  66%, 84% { transform: translateX(4px) translateY(-1px); }
+  66%, 84% { transform: translateX(3.5px) translateY(-1px); }
 }
 
 @keyframes avBrow {
   0%, 60%, 92%, 100% { transform: translateY(0); }
-  68%, 84% { transform: translateY(-2.5px); }
+  68%, 84% { transform: translateY(-5px); }
 }
 
 @keyframes avSmile {

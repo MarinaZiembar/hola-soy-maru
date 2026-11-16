@@ -48,18 +48,7 @@ export default function About() {
         <div className="about-grid">
           {/* Composición geométrica con el avatar de Maru */}
           <Reveal className="about-visual">
-            <div className="about-cell about-photo">
-              <Avatar />
-            </div>
-            <div className="about-cell">
-              <Shape name="quarter" className="about-shape spin-slow" />
-            </div>
-            <div className="about-cell bg-ink">
-              <Shape name="circle" className="about-shape breathe" fill="var(--red)" />
-            </div>
-            <div className="about-cell">
-              <Shape name="triangle" className="about-shape" />
-            </div>
+            <Avatar />
           </Reveal>
 
           <div className="about-text">

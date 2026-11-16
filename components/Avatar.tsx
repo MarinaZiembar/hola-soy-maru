@@ -1,101 +1,119 @@
 /**
- * Avatar geométrico de Maru (de hombros para arriba).
- * Pelo corto con flequillo, pañuelito con nudo, anteojos redondos, septum y aros.
- * Animación: mira a un lado y al otro, inclina la cabeza, parpadea y sonríe.
+ * Avatar de Maru en estilo retrato plano/geométrico (de hombros para arriba).
+ * Cabeza alargada con la cara partida en dos tonos, pelo corto marrón claro con flequillo,
+ * pañuelito con nudo, anteojos redondos finos, ojos verde militar, septum y aros.
+ * Animación: mira a un lado y al otro, parpadea, levanta las cejas y sonríe.
  */
 export default function Avatar({ className = "" }: { className?: string }) {
-  const skin = "#f6d2b8";
-  const skinShade = "#e9b897";
-  const hair = "#3b2419";
+  const skin = "#f7d3bb";
+  const skinShade = "#eebc9f";
+  const nose = "#f0a088";
+  const hair = "#a57a52";
+  const hairShade = "#8a633f";
   const ink = "#141414";
+  const navy = "#24283d";
+  const eye = "#56613a"; // verde militar
 
   return (
-    <svg viewBox="18 22 164 178" className={`avatar ${className}`} role="img" aria-label="Avatar de Maru">
-      {/* fondo */}
-      <circle cx="100" cy="104" r="78" fill="var(--blue)" />
-      <circle className="av-spark" cx="164" cy="44" r="7" fill="var(--red)" />
-      <rect className="av-spark av-spark--2" x="28" y="52" width="11" height="11" fill="var(--paper)" />
+    <svg viewBox="45 38 310 310" preserveAspectRatio="xMidYMid slice" className={`avatar ${className}`} role="img" aria-label="Avatar de Maru">
+      <defs>
+        <clipPath id="av-face">
+          <rect x="138" y="92" width="124" height="190" rx="60" />
+        </clipPath>
+      </defs>
 
-      {/* hombros (buzo) */}
-      <path d="M30 200 V184 Q30 160 64 153 L100 160 L136 153 Q170 160 170 184 V200 Z" fill={ink} />
-      <path d="M86 152 L100 168 L114 152 Z" fill="#2a2f4a" />
+      {/* fondo */}
+      <rect x="0" y="0" width="400" height="400" fill="var(--blue)" />
+
+      {/* hombros: buzo en bloques */}
+      <path d="M60 400 L84 340 Q96 312 140 304 L200 300 L260 304 Q304 312 316 340 L340 400 Z" fill={navy} />
+      <path d="M200 300 L260 304 Q304 312 316 340 L340 400 L200 400 Z" fill={ink} opacity="0.55" />
+      <path d="M150 304 L200 372 L250 304 L232 300 L200 336 L168 300 Z" fill={ink} />
 
       {/* cuello */}
-      <rect x="88" y="128" width="24" height="30" rx="6" fill={skin} />
-      <rect x="88" y="128" width="24" height="10" fill={skinShade} />
+      <rect x="172" y="250" width="56" height="62" fill={skinShade} />
+      <path d="M172 300 L200 336 L228 300 Z" fill={skinShade} />
 
-      {/* cabeza (se inclina) */}
       <g className="av-head">
         {/* orejas + aros */}
-        <circle cx="61" cy="104" r="8" fill={skin} />
-        <circle cx="139" cy="104" r="8" fill={skin} />
-        <circle cx="60" cy="122" r="8" fill="none" stroke="var(--yellow)" strokeWidth="2.4" />
-        <circle cx="140" cy="122" r="8" fill="none" stroke="var(--yellow)" strokeWidth="2.4" />
+        <path d="M138 178 a14 18 0 0 0 0 36 Z" fill={skin} />
+        <path d="M262 178 a14 18 0 0 1 0 36 Z" fill={skinShade} />
+        <circle cx="132" cy="226" r="12" fill="none" stroke="var(--yellow)" strokeWidth="3" />
+        <circle cx="268" cy="226" r="12" fill="none" stroke="var(--yellow)" strokeWidth="3" />
 
-        {/* cara */}
-        <ellipse cx="100" cy="102" rx="38" ry="43" fill={skin} />
+        {/* cara partida en dos tonos */}
+        <rect x="138" y="92" width="124" height="190" rx="60" fill={skin} />
+        <rect x="200" y="92" width="62" height="190" fill={skinShade} clipPath="url(#av-face)" />
 
-        {/* pelo: casquete corto + flequillo recto en zigzag */}
-        <path
-          d="M60 104 Q57 58 100 52 Q143 58 140 104 L135 104 Q134 84 128 78 L124 86 L118 77 L112 86 L106 77 L100 86 L94 77 L88 86 L82 77 L76 86 L72 79 Q66 86 65 104 Z"
-          fill={hair}
-        />
+        {/* pelo: casquete + flequillo recto con corte en diagonal + patillas */}
+        <path d="M132 186 V150 Q132 72 200 70 Q268 72 268 150 V186 L258 186 V146 L142 146 V186 Z" fill={hair} />
+        <path d="M200 70 Q268 72 268 150 V186 L258 186 V146 L200 146 Z" fill={hairShade} />
+        <path d="M142 112 H258 V140 L236 150 L214 138 L192 152 L170 138 L150 150 L142 146 Z" fill={hair} />
+        <path d="M200 112 H258 V140 L236 150 L214 138 L200 146 Z" fill={hairShade} />
 
-        {/* pañuelito: vincha negra con puntitos + nudo */}
-        <path d="M61 82 Q100 46 139 82 L136 74 Q100 38 64 74 Z" fill={ink} />
+        {/* pañuelito: vincha con puntitos + nudo */}
+        <path d="M134 116 Q200 64 266 116 L266 100 Q200 48 134 100 Z" fill={ink} />
         <g fill="var(--paper)">
-          <circle cx="76" cy="69" r="1.6" />
-          <circle cx="88" cy="61" r="1.6" />
-          <circle cx="100" cy="58" r="1.6" />
-          <circle cx="112" cy="61" r="1.6" />
-          <circle cx="124" cy="69" r="1.6" />
-          <circle cx="82" cy="66" r="1" />
-          <circle cx="118" cy="66" r="1" />
+          <circle cx="152" cy="98" r="2.6" />
+          <circle cx="172" cy="86" r="2.6" />
+          <circle cx="194" cy="80" r="2.6" />
+          <circle cx="216" cy="81" r="2.6" />
+          <circle cx="238" cy="88" r="2.6" />
+          <circle cx="254" cy="99" r="2.6" />
+          <circle cx="162" cy="96" r="1.5" />
+          <circle cx="206" cy="90" r="1.5" />
+          <circle cx="246" cy="98" r="1.5" />
         </g>
         <g className="av-knot">
-          <path d="M108 50 L94 40 L96 54 Z" fill={ink} />
-          <path d="M110 50 L126 44 L118 57 Z" fill={ink} />
-          <circle cx="108" cy="51" r="4.5" fill={ink} />
-          <circle cx="117" cy="49" r="1.2" fill="var(--paper)" />
+          <path d="M224 70 L198 50 L204 78 Z" fill={ink} />
+          <path d="M228 70 L258 56 L246 82 Z" fill={ink} />
+          <circle cx="226" cy="71" r="8" fill={ink} />
+          <circle cx="244" cy="66" r="2" fill="var(--paper)" />
         </g>
 
         {/* cejas */}
-        <rect className="av-brow" x="76" y="85" width="16" height="3.4" rx="1.7" fill={hair} transform="rotate(-6 84 86)" />
-        <rect className="av-brow" x="108" y="85" width="16" height="3.4" rx="1.7" fill={hair} transform="rotate(6 116 86)" />
+        <g className="av-brow">
+          <rect x="152" y="160" width="32" height="4" rx="2" fill={hairShade} />
+          <rect x="216" y="160" width="32" height="4" rx="2" fill={hairShade} />
+        </g>
 
-        {/* ojos (se mueven y parpadean) */}
-        <g className="av-eyes">
-          <g className="av-blink">
-            <circle cx="85" cy="101" r="4.2" fill={ink} />
-            <circle cx="115" cy="101" r="4.2" fill={ink} />
-            <circle cx="86.5" cy="99.5" r="1.3" fill="#fff" />
-            <circle cx="116.5" cy="99.5" r="1.3" fill="#fff" />
+        {/* ojos verde militar (miran y parpadean) */}
+        <g className="av-blink">
+          <circle cx="168" cy="186" r="9" fill="#fff" />
+          <circle cx="232" cy="186" r="9" fill="#fff" />
+          <g className="av-eyes">
+            <circle cx="168" cy="186" r="6" fill={eye} />
+            <circle cx="232" cy="186" r="6" fill={eye} />
+            <circle cx="168" cy="186" r="2.6" fill={ink} />
+            <circle cx="232" cy="186" r="2.6" fill={ink} />
           </g>
+          <path d="M157 180 Q168 172 179 180" fill="none" stroke={ink} strokeWidth="2" strokeLinecap="round" />
+          <path d="M221 180 Q232 172 243 180" fill="none" stroke={ink} strokeWidth="2" strokeLinecap="round" />
         </g>
 
-        {/* anteojos redondos */}
-        <g fill="none" stroke={ink} strokeWidth="2.6">
-          <circle cx="84" cy="101" r="14" />
-          <circle cx="116" cy="101" r="14" />
-          <path d="M98 99 Q100 96 102 99" />
-          <path d="M70 99 L62 97" />
-          <path d="M130 99 L138 97" />
+        {/* anteojos redondos finos */}
+        <g fill="none" stroke={ink} strokeWidth="2.4">
+          <circle cx="168" cy="186" r="22" />
+          <circle cx="232" cy="186" r="22" />
+          <path d="M190 184 H210" />
+          <path d="M146 182 L136 178" />
+          <path d="M254 182 L264 178" />
         </g>
 
-        {/* nariz */}
-        <path d="M100 106 L96 118 L102 118" fill="none" stroke={skinShade} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        {/* nariz: rectángulo redondeado */}
+        <rect x="191" y="170" width="18" height="56" rx="9" fill={nose} />
 
         {/* septum */}
-        <circle cx="99.5" cy="121.5" r="3.2" fill="none" stroke="#9aa0a6" strokeWidth="1.8" />
+        <circle cx="200" cy="232" r="5" fill="none" stroke="#a9aeb3" strokeWidth="2.4" />
 
         {/* cachetes */}
-        <circle cx="74" cy="118" r="6" fill="var(--red)" opacity="0.22" />
-        <circle cx="126" cy="118" r="6" fill="var(--red)" opacity="0.22" />
+        <circle cx="160" cy="226" r="12" fill="var(--red)" opacity="0.18" />
+        <circle cx="240" cy="226" r="12" fill="var(--red)" opacity="0.18" />
 
-        {/* boca: sonrisa suave ↔ sonrisa grande */}
-        <path className="av-smile" d="M89 127 Q100 136 111 127" fill="none" stroke={ink} strokeWidth="2.6" strokeLinecap="round" />
-        <path className="av-grin" d="M88 126 Q100 142 112 126 Z" fill={ink} />
-        <path className="av-grin" d="M91 127.5 H109 Q108 131 100 131.5 Q92 131 91 127.5 Z" fill="#fff" />
+        {/* boca */}
+        <path className="av-smile" d="M184 250 Q200 260 216 250" fill="none" stroke={ink} strokeWidth="2.6" strokeLinecap="round" />
+        <path className="av-grin" d="M182 247 Q200 270 218 247 Z" fill="#c2412a" />
+        <path className="av-grin" d="M186 248 H214 Q211 254 200 254.5 Q189 254 186 248 Z" fill="#fff" />
       </g>
     </svg>
   );
