@@ -5,7 +5,7 @@ import { LINKEDIN_URL } from "@/lib/content";
 import Reveal from "./Reveal";
 import Shape from "./Shape";
 
-const inlineColors = ["var(--red)", "var(--blue)", "var(--yellow)"];
+const inlineColors = ["var(--red)", "var(--yellow)", "var(--paper)"];
 
 export default function About() {
   const { t } = useLang();
@@ -14,8 +14,8 @@ export default function About() {
   return (
     <section className="section about" id="about">
       <div className="container">
-        <Reveal className="section-meta">
-          <span className="mono">(05)</span>
+        <Reveal className="section-meta section-meta--light">
+          <span className="mono">(02)</span>
           <span className="mono">{t.about.label}</span>
           <span className="section-rule" />
         </Reveal>
@@ -70,7 +70,7 @@ export default function About() {
             </Reveal>
 
             <Reveal delay={260}>
-              <a className="pill" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+              <a className="pill pill--light" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
                 <span className="pill-fill" aria-hidden />
                 <span className="pill-label">{t.about.button}</span>
                 <span className="pill-arrow" aria-hidden>

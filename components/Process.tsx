@@ -9,7 +9,7 @@ import Shape from "./Shape";
 // Cada paso es una forma que "se completa": círculo → semicírculos → cuadrado → anillo
 const icons: { s: ShapeName; accent?: string }[] = [
   { s: "circle" },
-  { s: "half", accent: "var(--blue)" },
+  { s: "half", accent: "var(--yellow)" },
   { s: "square" },
   { s: "ring", accent: "var(--red)" },
 ];
@@ -21,7 +21,7 @@ export default function Process() {
   return (
     <section className="section process" id="process">
       <div className="container">
-        <SectionHead index="03" label={t.process.label} title={t.process.title} />
+        <SectionHead index="03" label={t.process.label} title={t.process.title} light />
 
         <Reveal as="ol" className="process-list">
           {t.process.steps.map((s, i) => (

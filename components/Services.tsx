@@ -18,7 +18,7 @@ export default function Services() {
   return (
     <section className="section services" id="services">
       <div className="container">
-        <SectionHead index="02" label={t.services.label} title={t.services.title} aside={t.services.aside} />
+        <SectionHead index="04" label={t.services.label} title={t.services.title} aside={t.services.aside} />
 
         <div className="services-grid">
           {t.services.items.map((s, i) => (

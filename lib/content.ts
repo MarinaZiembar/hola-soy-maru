@@ -15,6 +15,10 @@ type Project = {
   /** Portada generativa: 4 formas en grilla 2x2 */
   cover: [ShapeName, ShapeName, ShapeName, ShapeName];
   accent: "red" | "blue" | "yellow";
+  /** color de fondo del slide en el carrusel */
+  theme: "ink" | "red" | "yellow" | "paper";
+  /** si es true, el slide muestra un botón a contacto */
+  contact?: boolean;
 };
 type Item = { title: string; desc: string };
 type Service = { title: string; desc: string; ideal: string; items: string[] };
@@ -22,7 +26,7 @@ type Testimonial = { quote: string; name: string; role: string };
 type Part = string | { shape: ShapeName };
 
 export type Dict = {
-  nav: { services: string; process: string; work: string; about: string; faq: string; cta: string };
+  nav: { work: string; about: string; process: string; services: string; faq: string; cta: string };
   hero: {
     eyebrow: string;
     title1: string;
@@ -34,12 +38,11 @@ export type Dict = {
     trust: string[];
   };
   marquee: string[];
-  benefits: { label: string; title: string; items: Item[] };
   services: { label: string; title: string; aside: string; idealLabel: string; cta: string; items: Service[] };
   process: { label: string; title: string; steps: Item[] };
-  work: { label: string; title: string; view: string; soon: string; items: Project[] };
+  work: { label: string; title: string; view: string; soon: string; prev: string; next: string; items: Project[] };
   about: { label: string; statement: Part[]; body: string[]; facts: { k: string; v: string }[]; button: string };
-  testimonials: { label: string; title: string; items: Testimonial[] };
+  testimonials: { label: string; title: string; items: Testimonial[] }; // (sección oculta por ahora)
   faq: { label: string; title: string; items: { q: string; a: string }[] };
   contact: { label: string; title: string; sub: string; copy: string; copied: string; write: string };
   footer: { made: string; top: string };
@@ -47,7 +50,7 @@ export type Dict = {
 
 export const dict: Record<Lang, Dict> = {
   es: {
-    nav: { services: "Servicios", process: "Proceso", work: "Trabajos", about: "Quién soy", faq: "FAQ", cta: "Pedí tu presupuesto" },
+    nav: { work: "Trabajos", about: "Sobre mí", process: "Proceso", services: "Servicios", faq: "FAQ", cta: "Pedí tu presupuesto" },
     hero: {
       eyebrow: "Diseño + desarrollo web · Buenos Aires",
       title1: "Hola!",
@@ -55,23 +58,13 @@ export const dict: Record<Lang, Dict> = {
       headline: "Hago sitios web que hacen crecer tu negocio.",
       sub: "Diseño y desarrollo a medida: lindos, rápidos y pensados para que tus visitas se conviertan en clientes.",
       cta: "Pedí tu presupuesto",
-      secondary: "Ver servicios",
+      secondary: "Ver trabajos",
       trust: ["Diseño a medida", "100% responsive", "SEO incluido"],
     },
     marquee: ["Sitios institucionales", "E-commerce", "Sitios a medida", "Landing pages", "Diseño UX/UI", "Animaciones"],
-    benefits: {
-      label: "Por qué conmigo",
-      title: "Un sitio que trabaja para vos",
-      items: [
-        { title: "Nada de plantillas", desc: "Diseño pensado para tu marca y tu público, no un template que tiene todo el mundo." },
-        { title: "Rápido y en Google", desc: "Código prolijo y optimizado para que cargue al toque y te encuentren." },
-        { title: "Se ve bien en todos lados", desc: "Celular, tablet o compu: tu sitio se adapta y se ve impecable." },
-        { title: "Diseñadora + dev", desc: "Una sola persona de punta a punta: menos vueltas, más coherencia." },
-      ],
-    },
     services: {
       label: "Servicios",
-      title: "¿Qué necesitás?",
+      title: "¿En qué te ayudo?",
       aside: "Cada proyecto es distinto, así que el presupuesto lo armamos juntxs.",
       idealLabel: "Ideal para",
       cta: "Pedir presupuesto",
@@ -98,7 +91,7 @@ export const dict: Record<Lang, Dict> = {
     },
     process: {
       label: "Proceso",
-      title: "Así trabajamos",
+      title: "De la idea a tu web, en 4 pasos",
       steps: [
         { title: "Primera charla", desc: "Me contás tu idea, tus tiempos y qué necesitás. Yo pregunto mucho." },
         { title: "Realización y feedback", desc: "Diseño y desarrollo con avances frecuentes. Vos opinás, yo ajusto." },
@@ -108,17 +101,19 @@ export const dict: Record<Lang, Dict> = {
     },
     work: {
       label: "Trabajos",
-      title: "Algunas cosas que hice",
+      title: "Confiaron en mí",
       view: "Ver proyecto",
       soon: "Próximamente",
+      prev: "Anterior",
+      next: "Siguiente",
       items: [
-        { title: "uMarket", kind: "Marketplace", desc: "Las bases de un marketplace, desde cero y en equipo.", cover: ["square", "quarter", "circle", "half"], accent: "blue" },
-        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Televisores retro flotando en un cielo pastel.", cover: ["ring", "square", "triangle", "circle"], accent: "red" },
-        { title: "Tu proyecto", kind: "Próximamente", desc: "Este lugar está guardado para lo que hagamos juntxs.", cover: ["circle", "circle", "square", "ring"], accent: "yellow" },
+        { title: "uMarket", kind: "Marketplace", desc: "Las bases de un marketplace, desde cero y en equipo.", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Televisores retro flotando en un cielo pastel.", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
+        { title: "Tu proyecto", kind: "Próximamente", desc: "Este lugar está guardado para lo que hagamos juntxs.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "yellow", contact: true },
       ],
     },
     about: {
-      label: "Quién soy",
+      label: "Sobre mí",
       statement: ["Mitad diseñadora", { shape: "circle" }, "mitad dev", { shape: "square" }, "y bastante curiosa", { shape: "triangle" }],
       body: [
         "Soy Marina, pero todos me dicen Maru. Estudié Diseño Gráfico en la UBA, después me enamoré del código y desde entonces hago las dos cosas a la vez.",
@@ -163,7 +158,7 @@ export const dict: Record<Lang, Dict> = {
     footer: { made: "Diseñado y desarrollado por Maru", top: "Arriba" },
   },
   en: {
-    nav: { services: "Services", process: "Process", work: "Work", about: "About", faq: "FAQ", cta: "Get a quote" },
+    nav: { work: "Work", about: "About", process: "Process", services: "Services", faq: "FAQ", cta: "Get a quote" },
     hero: {
       eyebrow: "Web design + development · Buenos Aires",
       title1: "Hola!",
@@ -171,23 +166,13 @@ export const dict: Record<Lang, Dict> = {
       headline: "I build websites that help your business grow.",
       sub: "Custom design and development: beautiful, fast and built to turn your visitors into clients.",
       cta: "Get a quote",
-      secondary: "See services",
+      secondary: "See my work",
       trust: ["Custom design", "100% responsive", "SEO included"],
     },
     marquee: ["Business websites", "E-commerce", "Custom websites", "Landing pages", "UX/UI Design", "Motion"],
-    benefits: {
-      label: "Why me",
-      title: "A website that works for you",
-      items: [
-        { title: "No templates", desc: "Design made for your brand and your audience, not a theme everyone else has." },
-        { title: "Fast and on Google", desc: "Clean, optimized code so it loads in a snap and people can find you." },
-        { title: "Looks good everywhere", desc: "Phone, tablet or laptop: your site adapts and looks flawless." },
-        { title: "Designer + dev", desc: "One person from start to finish: less back and forth, more consistency." },
-      ],
-    },
     services: {
       label: "Services",
-      title: "What do you need?",
+      title: "How can I help?",
       aside: "Every project is different, so we'll put the quote together.",
       idealLabel: "Great for",
       cta: "Get a quote",
@@ -214,7 +199,7 @@ export const dict: Record<Lang, Dict> = {
     },
     process: {
       label: "Process",
-      title: "How we work",
+      title: "From idea to website, in 4 steps",
       steps: [
         { title: "First chat", desc: "You tell me your idea, your timing and what you need. I ask a lot of questions." },
         { title: "Build & feedback", desc: "Design and development with frequent check-ins. You give feedback, I adjust." },
@@ -224,13 +209,15 @@ export const dict: Record<Lang, Dict> = {
     },
     work: {
       label: "Work",
-      title: "Some things I made",
+      title: "They trusted me",
       view: "View project",
       soon: "Coming soon",
+      prev: "Previous",
+      next: "Next",
       items: [
-        { title: "uMarket", kind: "Marketplace", desc: "Laying the foundations of a marketplace, from scratch, as a team.", cover: ["square", "quarter", "circle", "half"], accent: "blue" },
-        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Retro TVs floating in a pastel sky.", cover: ["ring", "square", "triangle", "circle"], accent: "red" },
-        { title: "Your project", kind: "Coming soon", desc: "This spot is saved for what we'll make together.", cover: ["circle", "circle", "square", "ring"], accent: "yellow" },
+        { title: "uMarket", kind: "Marketplace", desc: "Laying the foundations of a marketplace, from scratch, as a team.", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Retro TVs floating in a pastel sky.", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
+        { title: "Your project", kind: "Coming soon", desc: "This spot is saved for what we'll make together.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "yellow", contact: true },
       ],
     },
     about: {

@@ -53,7 +53,7 @@ export default function Hero() {
           <a href="#contact" className="btn">
             {t.hero.cta} <span className="btn-arrow">→</span>
           </a>
-          <a href="#services" className="link-arrow">
+          <a href="#work" className="link-arrow">
             {t.hero.secondary} <span>↓</span>
           </a>
         </div>

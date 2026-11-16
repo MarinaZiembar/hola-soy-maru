@@ -30,7 +30,7 @@ export default function Contact() {
 
       <div className="container contact-inner">
         <Reveal className="section-meta section-meta--light">
-          <span className="mono">(08)</span>
+          <span className="mono">(06)</span>
           <span className="mono">{t.contact.label}</span>
           <span className="section-rule" />
         </Reveal>

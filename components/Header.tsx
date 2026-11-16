@@ -26,10 +26,10 @@ export default function Header() {
   }, [open]);
 
   const links = [
-    { href: "#services", label: t.nav.services },
-    { href: "#process", label: t.nav.process },
     { href: "#work", label: t.nav.work },
     { href: "#about", label: t.nav.about },
+    { href: "#process", label: t.nav.process },
+    { href: "#services", label: t.nav.services },
     { href: "#faq", label: t.nav.faq },
   ];
 
