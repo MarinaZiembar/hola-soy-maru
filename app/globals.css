@@ -1094,6 +1094,20 @@ main {
   animation: avGrin 9s var(--ease-io) infinite;
 }
 
+/* siguiendo al cursor: se pausan las animaciones de mirada */
+.avatar.is-tracking .av-eyes,
+.avatar.is-tracking .av-head,
+.avatar.is-tracking .av-brow {
+  animation: none;
+  transition: transform 0.18s ease-out;
+}
+
+.avatar .av-eyes,
+.avatar .av-head,
+.avatar .av-brow {
+  transition: transform 0.5s var(--ease);
+}
+
 .av-knot {
   transform-box: fill-box;
   transform-origin: 30% 80%;
@@ -1110,9 +1124,6 @@ main {
   animation: spin 10s linear infinite;
 }
 
-.about-photo:hover .av-head {
-  animation-duration: 4.5s;
-}
 
 .about-photo img {
   width: 100%;
