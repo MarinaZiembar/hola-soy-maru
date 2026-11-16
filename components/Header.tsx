@@ -43,6 +43,19 @@ export default function Header() {
       </a>
 
       <nav className="nav" aria-label="Principal">
+        {/* splash de color + formitas: solo en el menú mobile */}
+        <span className="menu-splash" aria-hidden>
+          <i />
+          <i />
+          <i />
+        </span>
+        <span className="menu-shapes" aria-hidden>
+          <i className="ms-circle" />
+          <i className="ms-square" />
+          <i className="ms-tri" />
+          <i className="ms-ring" />
+          <i className="ms-dot" />
+        </span>
         {links.map((l, i) => (
           <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ ["--i" as string]: i }}>
             <span className="nav-index mono">0{i + 1}</span>

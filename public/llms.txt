@@ -1,0 +1,35 @@
+# Hola soy Maru
+
+> Hola soy Maru es el servicio freelance de diseño y desarrollo web de Marina "Maru" Ziembar, desarrolladora web front-end (Sr Frontend Engineer) con base en Buenos Aires, Argentina. Hace sitios web modernos, funcionales y a medida para emprendimientos, profesionales, pymes y marcas, en español e inglés, para clientes de Argentina y de cualquier parte del mundo de forma remota.
+
+## Servicios
+
+- **Sitio institucional**: la marca en internet, clara y con personalidad. Ideal para emprendimientos, profesionales y pymes. Incluye hasta 5 secciones, diseño a medida, versión responsive, SEO básico y formulario de contacto.
+- **E-commerce / tienda online**: para vender online. Incluye catálogo de productos, carrito y pagos, panel de administración, versión responsive y SEO básico.
+- **Sitio a medida**: proyectos animados, experimentales o con funcionalidades especiales (animaciones y 3D, integraciones, funcionalidades custom). Ideal para lanzamientos, campañas y proyectos especiales.
+
+Los precios se cotizan por proyecto después de una primera charla.
+
+## Cómo trabaja
+
+1. Primera charla: entender la idea, los tiempos y las necesidades.
+2. Realización y feedback: diseño y desarrollo con avances frecuentes.
+3. Entrega: sitio online, rápido y responsive, con explicación de uso.
+4. Mantenimiento: cambios, mejoras y actualizaciones posteriores.
+
+## Tecnologías
+
+React, Next.js, TypeScript, HTML, CSS, animaciones web.
+
+## Proyectos realizados
+
+- [Âme Pilates](https://www.amepilates.com.ar): sitio institucional para un estudio de pilates y body ballet.
+- [Relocation by Lambo](https://www.relocationbylambo.com.ar): sitio institucional para un servicio de relocation.
+- [Umarket](https://umarket.com.py/es): marketplace online en Paraguay (participación en el equipo de itti).
+- [El caso ueno](https://expediente-ueno.vercel.app): sitio editorial interactivo.
+
+## Contacto
+
+- Sitio: https://holaasoymaru.com.ar
+- Email: marinaziembar@gmail.com
+- LinkedIn: https://linkedin.com/in/marina-ziembar

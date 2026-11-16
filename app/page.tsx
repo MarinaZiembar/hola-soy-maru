@@ -6,9 +6,10 @@ import Process from "@/components/Process";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Faq from "@/components/Faq";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Cursor from "@/components/Cursor";
+import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <span key={i} />
         ))}
       </div>
+      <StructuredData />
       <Cursor />
       <Header />
       <main>
@@ -26,7 +28,7 @@ export default function Home() {
         <Projects />
         <Process />
         <About />
-        <Testimonials />
+        {/* <Testimonials />  — oculto hasta tener testimonios reales */}
         <Services />
         <Faq />
         <Contact />

@@ -2,7 +2,7 @@
 
 Landing de mi servicio freelance de diseño y desarrollo web. Next.js (App Router) + React + TypeScript, sin librerías extra: las animaciones son CSS + un par de hooks.
 
-Producción: https://hola-soy-maru.vercel.app (se deploya sola con cada push a `main`).
+Producción: https://holaasoymaru.com.ar (se deploya sola con cada push a `main`).
 
 ## Arrancar
 
