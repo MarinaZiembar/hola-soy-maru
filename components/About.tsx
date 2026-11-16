@@ -4,6 +4,7 @@ import { useLang } from "@/lib/i18n";
 import { LINKEDIN_URL } from "@/lib/content";
 import Reveal from "./Reveal";
 import Shape from "./Shape";
+import Avatar from "./Avatar";
 
 const inlineColors = ["var(--red)", "var(--blue)", "var(--yellow)"];
 
@@ -45,11 +46,10 @@ export default function About() {
         </Reveal>
 
         <div className="about-grid">
-          {/* Composición geométrica. TODO: tu foto va en .about-photo */}
+          {/* Composición geométrica con el avatar de Maru */}
           <Reveal className="about-visual">
             <div className="about-cell about-photo">
-              {/* <img src="/maru.jpg" alt="Maru" /> */}
-              <span className="mono">foto.jpg</span>
+              <Avatar />
             </div>
             <div className="about-cell">
               <Shape name="quarter" className="about-shape spin-slow" />

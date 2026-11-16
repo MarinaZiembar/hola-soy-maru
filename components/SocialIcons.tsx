@@ -25,11 +25,11 @@ export function LinkedinIcon({ size = 20 }: { size?: number }) {
 export default function SocialIcons({ linkedin = false, className = "" }: { linkedin?: boolean; className?: string }) {
   return (
     <span className={`social ${className}`}>
-      <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram @holaasoymaru" className="social-link">
+      <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram @holaasoymaru" className="social-link social-link--ig">
         <InstagramIcon />
       </a>
       {linkedin && (
-        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link">
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link social-link--in">
           <LinkedinIcon size={18} />
         </a>
       )}
