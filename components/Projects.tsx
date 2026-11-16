@@ -164,7 +164,20 @@ export default function Projects() {
                   )}
                 </div>
                 <div className="slide-visual">
-                  <Cover shapes={p.cover} accent={p.accent} className="slide-cover" image={p.logo} imageAlt={p.title} />
+                  {p.logo ? (
+                    // imagen en círculo grande con formitas orbitando
+                    <div className="orbit-wrap" style={{ ["--accent" as string]: `var(--${p.accent})` }}>
+                      <span className="orbit-path orbit-path--1" aria-hidden>
+                        <i className="orbit-sat orbit-sat--circle" />
+                      </span>
+                      <span className="orbit-path orbit-path--2" aria-hidden>
+                        <i className="orbit-sat orbit-sat--square" />
+                      </span>
+                      <Cover shapes={p.cover} accent={p.accent} className="slide-cover slide-cover--circle" image={p.logo} imageAlt={p.title} />
+                    </div>
+                  ) : (
+                    <Cover shapes={p.cover} accent={p.accent} className="slide-cover" />
+                  )}
                 </div>
               </div>
             </article>

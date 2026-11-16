@@ -228,6 +228,45 @@ main {
   pointer-events: none;
 }
 
+/* Desktop: el header es una pill larga flotante */
+@media (min-width: 901px) {
+  .header {
+    inset: 12px var(--pad) auto;
+    max-width: calc(1600px - 2 * var(--pad));
+    margin-inline: auto;
+    padding: 0.32rem 0.36rem 0.32rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px -12px rgba(20, 20, 20, 0.18);
+    transition:
+      transform 0.6s var(--ease),
+      background 0.4s,
+      border-color 0.4s,
+      box-shadow 0.4s;
+  }
+
+  .header.is-hidden {
+    transform: translateY(calc(-100% - 20px));
+  }
+
+  .header.is-top {
+    box-shadow: none;
+  }
+
+  .logo .logo-wink {
+    height: 34px;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+  }
+
+  .header-cta {
+    padding: 0.55rem 1.05rem;
+    font-size: 0.88rem;
+  }
+}
+
 @media (min-width: 901px) {
   .header .nav {
     transition:
@@ -1227,6 +1266,88 @@ main {
   transform: rotate(90deg);
 }
 
+/* imagen del proyecto en círculo + órbitas */
+.orbit-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-cover--circle {
+  position: absolute;
+  inset: 9%;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+.slide-cover--circle img {
+  border-radius: 50%;
+}
+
+.orbit-path {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-path--1 {
+  inset: 2%;
+  border: 1px solid color-mix(in srgb, var(--fg) 28%, transparent);
+  animation: spin 16s linear infinite;
+}
+
+.orbit-path--2 {
+  inset: 5.5%;
+  animation: spin 11s linear infinite reverse;
+}
+
+.orbit-sat {
+  position: absolute;
+  display: block;
+}
+
+.orbit-sat--circle {
+  top: 0;
+  left: 50%;
+  width: 7%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+.orbit-sat--square {
+  bottom: 14%;
+  left: 7%;
+  width: 3.4%;
+  aspect-ratio: 1;
+  background: var(--fg);
+  rotate: 20deg;
+}
+
+.slide.is-current .orbit-path {
+  opacity: 0;
+  animation-name: spin, orbitIn;
+  animation-duration: 16s, 0.9s;
+  animation-timing-function: linear, var(--ease);
+  animation-delay: 0s, 0.6s;
+  animation-iteration-count: infinite, 1;
+  animation-fill-mode: none, forwards;
+}
+
+.slide.is-current .orbit-path--2 {
+  animation-duration: 11s, 0.9s;
+  animation-direction: reverse, normal;
+  animation-delay: 0s, 0.75s;
+}
+
+.slide.is-prev .orbit-path {
+  opacity: 1;
+}
+
 .slide-big {
   position: absolute;
   right: -0.08em;
@@ -2086,6 +2207,11 @@ main {
   40% { transform: scale(0.96); }
 }
 
+@keyframes orbitIn {
+  from { opacity: 0; scale: 0.85; }
+  to { opacity: 1; scale: 1; }
+}
+
 @keyframes imgIn {
   from { clip-path: inset(100% 0 0 0); transform: scale(1.2); }
   to { clip-path: inset(0 0 0 0); transform: scale(1); }
@@ -2463,9 +2589,15 @@ main {
     container-type: size;
   }
 
-  .slide-cover {
+  .slide-cover,
+  .orbit-wrap {
     width: min(100cqw, 100cqh);
     height: min(100cqw, 100cqh);
+  }
+
+  .slide-cover--circle {
+    width: auto;
+    height: auto;
   }
 
   .work-ui {
