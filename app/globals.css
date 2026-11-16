@@ -1068,11 +1068,11 @@ main {
 .av-head {
   transform-box: view-box;
   transform-origin: 200px 300px;
-  animation: avHead 9s var(--ease-io) infinite;
+  animation: avHead 8s var(--ease-io) infinite;
 }
 
 .av-eyes {
-  animation: avLook 9s var(--ease-io) infinite;
+  animation: avLook 8s var(--ease-io) infinite;
 }
 
 .av-blink {
@@ -1082,7 +1082,7 @@ main {
 }
 
 .av-brow {
-  animation: avBrow 9s var(--ease-io) infinite;
+  animation: avBrow 8s var(--ease-io) infinite;
 }
 
 .av-smile {
@@ -2311,22 +2311,26 @@ main {
 }
 
 @keyframes avHead {
-  0%, 18%, 100% { transform: rotate(0deg); }
-  26%, 42% { transform: rotate(-3deg) translateX(-3px); }
-  52%, 58% { transform: rotate(0deg); }
-  66%, 84% { transform: rotate(3deg) translateX(3px); }
+  0%, 12%, 100% { transform: rotate(0deg); }
+  18%, 32% { transform: rotate(-3deg) translateX(-2px); }
+  38%, 50% { transform: rotate(1.5deg) translateY(-2px); }
+  56%, 72% { transform: rotate(3deg) translateX(2px); }
+  80%, 92% { transform: rotate(0deg); }
 }
 
 @keyframes avLook {
-  0%, 18%, 100% { transform: translateX(0); }
-  26%, 42% { transform: translateX(-3.5px); }
-  52%, 58% { transform: translateX(0); }
-  66%, 84% { transform: translateX(3.5px) translateY(-1px); }
+  0%, 12%, 100% { transform: translate(0, 0); }
+  18%, 32% { transform: translate(-6px, 1px); }
+  38%, 50% { transform: translate(4px, -5px); }
+  56%, 72% { transform: translate(6px, 0); }
+  80%, 92% { transform: translate(0, -2px); }
 }
 
 @keyframes avBrow {
-  0%, 60%, 92%, 100% { transform: translateY(0); }
-  68%, 84% { transform: translateY(-5px); }
+  0%, 12%, 32%, 100% { transform: translateY(0); }
+  38%, 50% { transform: translateY(-6px); }
+  56%, 72% { transform: translateY(-3px); }
+  80%, 92% { transform: translateY(-4px); }
 }
 
 @keyframes avSmile {
