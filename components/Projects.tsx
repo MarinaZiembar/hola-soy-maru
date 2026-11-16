@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 import { useLang } from "@/lib/i18n";
 import Cover from "./Cover";
 
@@ -14,7 +14,9 @@ function Chars({ text, suffix }: { text: string; suffix?: ReactNode }) {
   return (
     <>
       {words.map((word, w) => (
-        <span className="word" key={w}>
+        <Fragment key={w}>
+        {w > 0 && " "}
+        <span className="word">
           {Array.from(word).map((ch, i) => (
             <span className="char" key={i}>
               <span style={{ ["--d" as string]: `${(w * 4 + i) * 35 + 350}ms` }}>{ch}</span>
@@ -23,6 +25,7 @@ function Chars({ text, suffix }: { text: string; suffix?: ReactNode }) {
           {/* el sufijo va pegado a la última palabra para que no quede solo */}
           {w === words.length - 1 && suffix}
         </span>
+        </Fragment>
       ))}
     </>
   );

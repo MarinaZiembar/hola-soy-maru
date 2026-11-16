@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { useLang } from "@/lib/i18n";
 import Kinetic from "./Kinetic";
 import Wink from "./Wink";
@@ -11,13 +12,16 @@ function Split({ text, base = 0, strongLast = false }: { text: string; base?: nu
   return (
     <>
       {words.map((word, w) => (
-        <span className={`word ${strongLast && w === words.length - 1 ? "word--strong" : ""}`} key={w} aria-hidden>
+        <Fragment key={w}>
+        {w > 0 && " "}
+        <span className={`word ${strongLast && w === words.length - 1 ? "word--strong" : ""}`} aria-hidden>
           {Array.from(word).map((ch, i) => (
             <span className="char" key={i}>
               <span style={{ ["--d" as string]: `${n++ * 40}ms` }}>{ch}</span>
             </span>
           ))}
         </span>
+        </Fragment>
       ))}
     </>
   );
@@ -36,7 +40,7 @@ export default function Hero() {
         <h1 className="hero-title" key={lang} aria-label={`${t.hero.title1} ${t.hero.title2} ;)`}>
           <span className="hero-row hero-row--caps">
             <Split text={t.hero.title1} />
-          </span>
+          </span>{" "}
           <span className="hero-row">
             <span className="hero-word">
               <Split text={t.hero.title2} base={t.hero.title1.length} strongLast />
