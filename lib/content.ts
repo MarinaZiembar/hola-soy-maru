@@ -5,7 +5,7 @@ export type Lang = "es" | "en";
 export type ShapeName = "circle" | "half" | "quarter" | "square" | "triangle" | "ring" | "diamond";
 
 export const EMAIL = "marinaziembar@gmail.com";
-export const LINKEDIN_URL = "https://www.linkedin.com/in/TU-USUARIO"; // TODO
+export const LINKEDIN_URL = "https://linkedin.com/in/marina-ziembar";
 
 type Project = {
   title: string;
@@ -16,7 +16,12 @@ type Project = {
   cover: [ShapeName, ShapeName, ShapeName, ShapeName];
   accent: "red" | "blue" | "yellow";
   /** color de fondo del slide en el carrusel */
-  theme: "ink" | "red" | "yellow" | "paper";
+  theme: "ink" | "red" | "yellow" | "blue" | "paper";
+  /** logo circular en /public/projects */
+  logo?: string;
+  period?: string;
+  /** texto del link (dominio) */
+  linkLabel?: string;
   /** si es true, el slide muestra un botón a contacto */
   contact?: boolean;
 };
@@ -26,7 +31,7 @@ type Testimonial = { quote: string; name: string; role: string };
 type Part = string | { shape: ShapeName };
 
 export type Dict = {
-  nav: { work: string; about: string; process: string; services: string; faq: string; cta: string };
+  nav: { work: string; process: string; about: string; services: string; faq: string; cta: string };
   hero: {
     eyebrow: string;
     title1: string;
@@ -50,7 +55,7 @@ export type Dict = {
 
 export const dict: Record<Lang, Dict> = {
   es: {
-    nav: { work: "Trabajos", about: "Sobre mí", process: "Proceso", services: "Servicios", faq: "FAQ", cta: "Pedí tu presupuesto" },
+    nav: { work: "Proyectos", process: "Proceso", about: "Sobre mí", services: "Servicios", faq: "FAQ", cta: "Pedí tu presupuesto" },
     hero: {
       eyebrow: "Diseño + desarrollo web · Buenos Aires",
       title1: "Hola!",
@@ -58,7 +63,7 @@ export const dict: Record<Lang, Dict> = {
       headline: "Hago sitios web que hacen crecer tu negocio.",
       sub: "Diseño y desarrollo a medida: lindos, rápidos y pensados para que tus visitas se conviertan en clientes.",
       cta: "Pedí tu presupuesto",
-      secondary: "Ver trabajos",
+      secondary: "Ver proyectos",
       trust: ["Diseño a medida", "100% responsive", "SEO incluido"],
     },
     marquee: ["Sitios institucionales", "E-commerce", "Sitios a medida", "Landing pages", "Diseño UX/UI", "Animaciones"],
@@ -100,16 +105,18 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     work: {
-      label: "Trabajos",
-      title: "Confiaron en mí",
+      label: "Proyectos",
+      title: "Proyectos realizados",
       view: "Ver proyecto",
       soon: "Próximamente",
       prev: "Anterior",
       next: "Siguiente",
       items: [
-        { title: "uMarket", kind: "Marketplace", desc: "Las bases de un marketplace, desde cero y en equipo.", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
-        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Televisores retro flotando en un cielo pastel.", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
-        { title: "Tu proyecto", kind: "Próximamente", desc: "Este lugar está guardado para lo que hagamos juntxs.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "yellow", contact: true },
+        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "Marketplace online en Paraguay. Participé en sentar sus bases desde cero, junto al equipo.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket.png", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "El caso ueno", kind: "Sitio editorial", period: "2026", desc: "Una investigación periodística contada como póster interactivo, con las novedades hora a hora.", url: "https://expediente-ueno.vercel.app", linkLabel: "expediente-ueno.vercel.app", logo: "/projects/ueno.png", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
+        { title: "Âme Pilates", kind: "Sitio institucional", period: "2026", desc: "El sitio de un estudio de pilates y body ballet: elegante, simple y a medida.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame.png", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
+        { title: "Relocation by Lambo", kind: "Sitio institucional", period: "2026", desc: "Sitio para un servicio de relocation: claro, confiable y fácil de navegar.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation.png", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
+        { title: "Tu proyecto", kind: "Próximamente", desc: "Este lugar está guardado para lo que hagamos juntxs.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "paper", contact: true },
       ],
     },
     about: {
@@ -158,7 +165,7 @@ export const dict: Record<Lang, Dict> = {
     footer: { made: "Diseñado y desarrollado por Maru", top: "Arriba" },
   },
   en: {
-    nav: { work: "Work", about: "About", process: "Process", services: "Services", faq: "FAQ", cta: "Get a quote" },
+    nav: { work: "Projects", process: "Process", about: "About", services: "Services", faq: "FAQ", cta: "Get a quote" },
     hero: {
       eyebrow: "Web design + development · Buenos Aires",
       title1: "Hola!",
@@ -166,7 +173,7 @@ export const dict: Record<Lang, Dict> = {
       headline: "I build websites that help your business grow.",
       sub: "Custom design and development: beautiful, fast and built to turn your visitors into clients.",
       cta: "Get a quote",
-      secondary: "See my work",
+      secondary: "See projects",
       trust: ["Custom design", "100% responsive", "SEO included"],
     },
     marquee: ["Business websites", "E-commerce", "Custom websites", "Landing pages", "UX/UI Design", "Motion"],
@@ -208,16 +215,18 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     work: {
-      label: "Work",
-      title: "They trusted me",
+      label: "Projects",
+      title: "Projects I've built",
       view: "View project",
       soon: "Coming soon",
       prev: "Previous",
       next: "Next",
       items: [
-        { title: "uMarket", kind: "Marketplace", desc: "Laying the foundations of a marketplace, from scratch, as a team.", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
-        { title: "CRT Dreams", kind: "Three.js · Experimental", desc: "Retro TVs floating in a pastel sky.", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
-        { title: "Your project", kind: "Coming soon", desc: "This spot is saved for what we'll make together.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "yellow", contact: true },
+        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "An online marketplace in Paraguay. I helped lay its foundations from scratch, as part of the team.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket.png", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "El caso ueno", kind: "Editorial site", period: "2026", desc: "An investigative story told as an interactive poster, with updates hour by hour.", url: "https://expediente-ueno.vercel.app", linkLabel: "expediente-ueno.vercel.app", logo: "/projects/ueno.png", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
+        { title: "Âme Pilates", kind: "Business website", period: "2026", desc: "The website for a pilates and body ballet studio: elegant, simple and custom-made.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame.png", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
+        { title: "Relocation by Lambo", kind: "Business website", period: "2026", desc: "A website for a relocation service: clear, trustworthy and easy to navigate.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation.png", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
+        { title: "Your project", kind: "Coming soon", desc: "This spot is saved for what we'll make together.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "paper", contact: true },
       ],
     },
     about: {

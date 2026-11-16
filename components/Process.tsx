@@ -21,7 +21,7 @@ export default function Process() {
   return (
     <section className="section process" id="process">
       <div className="container">
-        <SectionHead index="03" label={t.process.label} title={t.process.title} light />
+        <SectionHead index="02" label={t.process.label} title={t.process.title} light />
 
         <Reveal as="ol" className="process-list">
           {t.process.steps.map((s, i) => (

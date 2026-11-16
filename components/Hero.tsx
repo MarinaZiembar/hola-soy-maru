@@ -33,7 +33,7 @@ export default function Hero() {
         </p>
 
         <h1 className="hero-title" key={lang} aria-label={`${t.hero.title1} ${t.hero.title2} ;)`}>
-          <span className="hero-row">
+          <span className="hero-row hero-row--caps">
             <Split text={t.hero.title1} />
           </span>
           <span className="hero-row">

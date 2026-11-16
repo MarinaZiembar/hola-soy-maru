@@ -25,7 +25,7 @@ Foto: en `components/About.tsx`, dentro de `.about-photo`, descomentá el `<img 
 
 ## Secciones
 
-Hero (composición cinética `Kinetic.tsx`) → Trabajos "Confiaron en mí" (carrusel 100vh, `Projects.tsx`; cada slide usa `theme`) → Sobre mí (azul) → Proceso (negro) → Servicios "¿En qué te ayudo?" (amarillo) → FAQ → Contacto (negro). `Testimonials.tsx` queda listo pero fuera de la página; para mostrarlo, agregalo en `app/page.tsx`.
+Hero (composición cinética `Kinetic.tsx`) → Proyectos realizados (carrusel 100vh, `Projects.tsx`; cada slide usa `theme` y el logo de `public/projects`) → Proceso (azul) → Sobre mí → Servicios "¿En qué te ayudo?" (amarillo) → FAQ → Contacto (negro). `Testimonials.tsx` queda listo pero fuera de la página; para mostrarlo, agregalo en `app/page.tsx`.
 
 ## Sistema visual
 

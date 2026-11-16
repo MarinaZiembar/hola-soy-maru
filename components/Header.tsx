@@ -8,6 +8,7 @@ export default function Header() {
   const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
   // Se esconde al bajar y aparece al subir
   useEffect(() => {
@@ -15,8 +16,10 @@ export default function Header() {
     const onScroll = () => {
       const y = window.scrollY;
       setHidden(y > last && y > 160);
+      setAtTop(y < 40);
       last = y;
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -27,16 +30,16 @@ export default function Header() {
 
   const links = [
     { href: "#work", label: t.nav.work },
-    { href: "#about", label: t.nav.about },
     { href: "#process", label: t.nav.process },
+    { href: "#about", label: t.nav.about },
     { href: "#services", label: t.nav.services },
     { href: "#faq", label: t.nav.faq },
   ];
 
   return (
-    <header className={`header ${hidden && !open ? "is-hidden" : ""} ${open ? "is-open" : ""}`}>
+    <header className={`header ${hidden && !open ? "is-hidden" : ""} ${open ? "is-open" : ""} ${atTop && !open ? "is-top" : ""}`}>
       <a href="#top" className="logo" aria-label="Hola soy Maru — inicio">
-        <Wink className="logo-wink" label="Hola soy Maru" />
+        <Wink className="logo-wink" label="Hola soy Maru" bold />
       </a>
 
       <nav className="nav" aria-label="Principal">

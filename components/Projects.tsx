@@ -134,6 +134,7 @@ export default function Projects() {
                       {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
                     </span>
                     <span>{p.kind}</span>
+                    {p.period && <span>{p.period}</span>}
                   </p>
                   <h3 className="slide-title">
                     <Chars text={p.title} />
@@ -141,7 +142,7 @@ export default function Projects() {
                   <p className="slide-desc">{p.desc}</p>
                   {p.url && (
                     <a href={p.url} target="_blank" rel="noopener noreferrer" className="slide-link">
-                      {t.work.view} <span>↗</span>
+                      {p.linkLabel ?? t.work.view} <span>↗</span>
                     </a>
                   )}
                   {p.contact && (
@@ -151,7 +152,7 @@ export default function Projects() {
                   )}
                 </div>
                 <div className="slide-visual">
-                  <Cover shapes={p.cover} accent={p.accent} className="slide-cover" />
+                  <Cover shapes={p.cover} accent={p.accent} className="slide-cover" image={p.logo} imageAlt={p.title} />
                 </div>
               </div>
             </article>

@@ -203,6 +203,28 @@ main {
   transform: translateY(-101%);
 }
 
+/* Arriba de todo en la home: sin línea ni links */
+.header.is-top {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: transparent;
+}
+
+@media (min-width: 901px) {
+  .header .nav {
+    transition:
+      opacity 0.5s var(--ease),
+      transform 0.6s var(--ease);
+  }
+
+  .header.is-top .nav {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+}
+
 .header.is-open {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -217,8 +239,8 @@ main {
   width: fit-content;
 }
 
-.logo-wink {
-  height: 44px;
+.logo .logo-wink {
+  height: 58px;
   opacity: 1;
   animation: none;
   margin: 0;
@@ -534,7 +556,6 @@ main {
 .hero-title {
   font-size: clamp(3.4rem, 8.4vw, 10rem);
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: -0.055em;
   line-height: 0.84;
   display: flex;
@@ -547,6 +568,10 @@ main {
   align-items: flex-end;
   flex-wrap: nowrap;
   gap: 0.1em;
+}
+
+.hero-row--caps {
+  text-transform: uppercase;
 }
 
 .hero-word {
@@ -562,8 +587,8 @@ main {
 .char {
   display: inline-block;
   overflow: hidden;
-  padding: 0.06em 0.005em 0;
-  margin-top: -0.06em;
+  padding: 0.06em 0.005em 0.14em;
+  margin: -0.06em 0 -0.14em;
 }
 
 .char > span {
@@ -988,6 +1013,7 @@ main {
 .theme-red { --bg: var(--red); --fg: var(--paper); }
 .theme-yellow { --bg: var(--yellow); --fg: var(--ink); }
 .theme-paper { --bg: var(--paper); --fg: var(--ink); }
+.theme-blue { --bg: var(--blue); --fg: var(--paper); }
 
 .work {
   position: relative;
@@ -1031,7 +1057,7 @@ main {
 }
 
 .slide.is-prev .char > span,
-.slide.is-prev .cover-cell svg,
+.slide.is-prev .cover-cell > *,
 .slide.is-prev .slide-desc,
 .slide.is-prev .slide-link,
 .slide.is-prev .slide-kind {
@@ -1108,14 +1134,27 @@ main {
   box-shadow: 0 0 0 1px var(--fg);
 }
 
-.slide.is-current .cover-cell svg {
+.slide.is-current .cover-cell > * {
   animation: coverIn 1s var(--ease-back) both;
 }
 
-.slide.is-current .cover-cell:nth-child(1) svg { animation-delay: 0.45s; }
-.slide.is-current .cover-cell:nth-child(2) svg { animation-delay: 0.55s; }
-.slide.is-current .cover-cell:nth-child(3) svg { animation-delay: 0.65s; }
-.slide.is-current .cover-cell:nth-child(4) svg { animation-delay: 0.75s; }
+.slide.is-current .cover-cell:nth-child(1) > * { animation-delay: 0.45s; }
+.slide.is-current .cover-cell:nth-child(2) > * { animation-delay: 0.55s; }
+.slide.is-current .cover-cell:nth-child(3) > * { animation-delay: 0.65s; }
+.slide.is-current .cover-cell:nth-child(4) > * { animation-delay: 0.75s; }
+
+.cover-logo {
+  width: 84%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  -webkit-user-drag: none;
+}
+
+.slide-visual:hover .cover-logo {
+  transform: none !important;
+}
 
 .slide-visual:hover .cover-cell svg {
   transition: transform 0.7s var(--ease-back);
@@ -1359,41 +1398,14 @@ main {
 
 /* ---------- Secciones con fondo ---------- */
 
-/* Sobre mí: azul */
-.about {
+/* Proceso: azul */
+.process {
   background: var(--blue);
   color: var(--paper);
 }
 
-.about .about-visual {
-  border-color: var(--paper);
-}
-
-.about .about-cell {
-  border-color: var(--paper);
-}
-
-.about .about-photo {
-  background: rgba(242, 239, 232, 0.14);
-  color: rgba(242, 239, 232, 0.7);
-}
-
-.about .facts dt {
-  color: rgba(242, 239, 232, 0.65);
-}
-
-.about .facts > div {
-  border-color: rgba(242, 239, 232, 0.3);
-}
-
-/* Proceso: negro */
-.process {
-  background: var(--ink);
-  color: var(--paper);
-}
-
 .process .process-list {
-  border-color: rgba(242, 239, 232, 0.2);
+  border-color: rgba(242, 239, 232, 0.3);
 }
 
 .process .process-list::before {
@@ -1401,12 +1413,12 @@ main {
 }
 
 .process .process-step {
-  border-color: rgba(242, 239, 232, 0.2);
+  border-color: rgba(242, 239, 232, 0.3);
 }
 
 .process .process-step p,
 .process .process-count {
-  color: rgba(242, 239, 232, 0.6);
+  color: rgba(242, 239, 232, 0.75);
 }
 
 /* Servicios: amarillo */
@@ -2027,6 +2039,10 @@ main {
   .nav-index {
     font-size: 0.75rem;
     width: 2.2rem;
+  }
+
+  .logo .logo-wink {
+    height: 46px;
   }
 
   .hero {
