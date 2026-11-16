@@ -5,12 +5,13 @@ import Kinetic from "./Kinetic";
 import Wink from "./Wink";
 
 /** Divide en palabras (no se cortan) y letras (cada una entra animada). */
-function Split({ text, base = 0 }: { text: string; base?: number }) {
+function Split({ text, base = 0, strongLast = false }: { text: string; base?: number; strongLast?: boolean }) {
   let n = base;
+  const words = text.split(" ");
   return (
     <>
-      {text.split(" ").map((word, w) => (
-        <span className="word" key={w} aria-hidden>
+      {words.map((word, w) => (
+        <span className={`word ${strongLast && w === words.length - 1 ? "word--strong" : ""}`} key={w} aria-hidden>
           {Array.from(word).map((ch, i) => (
             <span className="char" key={i}>
               <span style={{ ["--d" as string]: `${n++ * 40}ms` }}>{ch}</span>
@@ -38,7 +39,7 @@ export default function Hero() {
           </span>
           <span className="hero-row">
             <span className="hero-word">
-              <Split text={t.hero.title2} base={t.hero.title1.length} />
+              <Split text={t.hero.title2} base={t.hero.title1.length} strongLast />
             </span>
             <Wink className="hero-wink" />
           </span>
