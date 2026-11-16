@@ -15,7 +15,7 @@ export default function About() {
     <section className="section about" id="about">
       <div className="container">
         <Reveal className="section-meta">
-          <span className="mono">(01)</span>
+          <span className="mono">(05)</span>
           <span className="mono">{t.about.label}</span>
           <span className="section-rule" />
         </Reveal>

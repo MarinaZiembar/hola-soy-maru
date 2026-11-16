@@ -29,7 +29,7 @@ export default function Testimonials() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="container">
-        <SectionHead index="05" label={t.testimonials.label} title={t.testimonials.title} />
+        <SectionHead index="06" label={t.testimonials.label} title={t.testimonials.title} />
 
         <Reveal className="quote-wrap">
           <Shape name="quarter" className="quote-mark" fill="var(--blue)" />

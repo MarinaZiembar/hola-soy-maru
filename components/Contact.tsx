@@ -30,14 +30,13 @@ export default function Contact() {
 
       <div className="container contact-inner">
         <Reveal className="section-meta section-meta--light">
-          <span className="mono">(06)</span>
+          <span className="mono">(08)</span>
           <span className="mono">{t.contact.label}</span>
           <span className="section-rule" />
         </Reveal>
 
         <Reveal as="h2" className="contact-title" delay={80}>
-          <span>{t.contact.title1}</span>
-          <span className="contact-title-2">{t.contact.title2}</span>
+          {t.contact.title}
         </Reveal>
 
         <Reveal className="contact-row" delay={160}>

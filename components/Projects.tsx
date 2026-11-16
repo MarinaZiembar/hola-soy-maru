@@ -10,7 +10,7 @@ export default function Projects() {
   const { t } = useLang();
   const [active, setActive] = useState<number | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
-  const items = t.projects.items;
+  const items = t.work.items;
 
   // La portada sigue al cursor (solo desktop)
   useEffect(() => {
@@ -40,9 +40,9 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="section projects" id="projects">
+    <section className="section projects" id="work">
       <div className="container">
-        <SectionHead index="02" label={t.projects.label} title={t.projects.title} />
+        <SectionHead index="04" label={t.work.label} title={t.work.title} />
 
         <ul className="project-list" onMouseLeave={() => setActive(null)}>
           {items.map((p, i) => {
@@ -85,7 +85,7 @@ export default function Projects() {
               className={`project-preview-cover ${active === i ? "is-current" : ""}`}
             />
           ))}
-          <span className="project-preview-label mono">{active !== null && items[active].url ? t.projects.view : t.projects.soon}</span>
+          <span className="project-preview-label mono">{active !== null && items[active].url ? t.work.view : t.work.soon}</span>
         </div>
       </div>
     </section>

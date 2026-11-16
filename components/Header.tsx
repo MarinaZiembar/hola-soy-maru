@@ -2,29 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
-
-function useBuenosAiresTime() {
-  const [time, setTime] = useState<string | null>(null);
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("es-AR", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "America/Argentina/Buenos_Aires",
-    });
-    const tick = () => setTime(fmt.format(new Date()));
-    tick();
-    const id = setInterval(tick, 15_000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
+import Wink from "./Wink";
 
 export default function Header() {
   const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const time = useBuenosAiresTime();
 
   // Se esconde al bajar y aparece al subir
   useEffect(() => {
@@ -43,26 +26,18 @@ export default function Header() {
   }, [open]);
 
   const links = [
-    { href: "#about", label: t.nav.about },
-    { href: "#projects", label: t.nav.projects },
+    { href: "#services", label: t.nav.services },
     { href: "#process", label: t.nav.process },
-    { href: "#packages", label: t.nav.packages },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#work", label: t.nav.work },
+    { href: "#about", label: t.nav.about },
+    { href: "#faq", label: t.nav.faq },
   ];
 
   return (
     <header className={`header ${hidden && !open ? "is-hidden" : ""} ${open ? "is-open" : ""}`}>
-      <a href="#top" className="logo" aria-label="Hola soy Maru">
-        <span className="logo-mark" aria-hidden>
-          <i />
-          <i />
-        </span>
-        maru
+      <a href="#top" className="logo" aria-label="Hola soy Maru — inicio">
+        <Wink className="logo-wink" label="Hola soy Maru" />
       </a>
-
-      <span className="header-clock mono" aria-hidden>
-        {t.hero.city} {time ?? "--:--"}
-      </span>
 
       <nav className="nav" aria-label="Principal">
         {links.map((l, i) => (
@@ -73,6 +48,9 @@ export default function Header() {
             </span>
           </a>
         ))}
+        <a href="#contact" className="nav-cta-mobile" onClick={() => setOpen(false)} style={{ ["--i" as string]: links.length }}>
+          {t.nav.cta} →
+        </a>
       </nav>
 
       <div className="header-actions">
@@ -85,6 +63,9 @@ export default function Header() {
             EN
           </button>
         </div>
+        <a href="#contact" className="btn btn--small header-cta">
+          {t.nav.cta}
+        </a>
         <button
           type="button"
           className="burger"

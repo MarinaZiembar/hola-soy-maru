@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/i18n";
-import TileGrid from "./TileGrid";
+import Kinetic from "./Kinetic";
 import Wink from "./Wink";
 
 /** Divide en palabras (no se cortan) y letras (cada una entra animada). */
@@ -27,52 +27,45 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
-      <div className="hero-top mono">
-        <span>{t.hero.role}</span>
-        <span className="hero-available">
-          <i className="pulse" /> {t.hero.available}
-        </span>
-      </div>
+      <div className="hero-copy">
+        <p className="hero-eyebrow mono">
+          <i className="pulse" /> {t.hero.eyebrow}
+        </p>
 
-      <h1 className="hero-title" key={lang} aria-label={`${t.hero.title1} ${t.hero.title2} ;)`}>
-        <span className="hero-row hero-row--1">
-          <span className="hero-word">
+        <h1 className="hero-title" key={lang} aria-label={`${t.hero.title1} ${t.hero.title2} ;)`}>
+          <span className="hero-row">
             <Split text={t.hero.title1} />
           </span>
-          <TileGrid className="hero-tiles" />
-        </span>
-        <span className="hero-row hero-row--2">
-          <span className="hero-word">
-            <Split text={t.hero.title2} base={t.hero.title1.length} />
+          <span className="hero-row">
+            <span className="hero-word">
+              <Split text={t.hero.title2} base={t.hero.title1.length} />
+            </span>
+            <Wink className="hero-wink" />
           </span>
-          <Wink className="hero-wink" />
-        </span>
-      </h1>
+        </h1>
 
-      <div className="hero-bottom">
+        <p className="hero-headline" key={`h-${lang}`}>
+          {t.hero.headline}
+        </p>
         <p className="hero-sub">{t.hero.sub}</p>
 
-        <a href="#contact" className="round-cta" aria-label={t.hero.cta}>
-          <svg viewBox="0 0 100 100" className="round-cta-text" aria-hidden>
-            <defs>
-              <path id="cta-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
-            </defs>
-            <text>
-              <textPath href="#cta-circle" textLength="228" lengthAdjust="spacing">
-                {`${t.hero.cta} — ${t.hero.cta} — `}
-              </textPath>
-            </text>
-          </svg>
-          <span className="round-cta-arrow" aria-hidden>
-            ↘
-          </span>
-        </a>
+        <div className="hero-actions">
+          <a href="#contact" className="btn">
+            {t.hero.cta} <span className="btn-arrow">→</span>
+          </a>
+          <a href="#services" className="link-arrow">
+            {t.hero.secondary} <span>↓</span>
+          </a>
+        </div>
 
-        <a href="#about" className="hero-scroll mono">
-          <span className="hero-scroll-line" />
-          {t.hero.scroll}
-        </a>
+        <ul className="hero-trust mono">
+          {t.hero.trust.map((x) => (
+            <li key={x}>{x}</li>
+          ))}
+        </ul>
       </div>
+
+      <Kinetic className="hero-kinetic" />
     </section>
   );
 }
