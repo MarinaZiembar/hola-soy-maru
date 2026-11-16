@@ -6,6 +6,7 @@ import Process from "@/components/Process";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Faq from "@/components/Faq";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Cursor from "@/components/Cursor";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Projects />
         <Process />
         <About />
+        <Testimonials />
         <Services />
         <Faq />
         <Contact />

@@ -29,10 +29,10 @@ export default function Testimonials() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="container">
-        <SectionHead index="06" label={t.testimonials.label} title={t.testimonials.title} />
+        <SectionHead label={t.testimonials.label} title={t.testimonials.title} light />
 
         <Reveal className="quote-wrap">
-          <Shape name="quarter" className="quote-mark" fill="var(--blue)" />
+          <Shape name="quarter" className="quote-mark" fill="var(--yellow)" />
           <figure className="quote" key={`${i}-${item.quote}`} aria-live="polite">
             <blockquote>{item.quote}</blockquote>
             <figcaption className="mono">

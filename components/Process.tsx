@@ -20,7 +20,7 @@ export default function Process() {
   return (
     <section className="section process" id="process">
       <div className="container">
-        <SectionHead index="02" label={t.process.label} title={t.process.title} light />
+        <SectionHead label={t.process.label} title={t.process.title} light />
 
         <Reveal as="ol" className="process-list">
           {t.process.steps.map((s, i) => (
@@ -33,6 +33,12 @@ export default function Process() {
               <p>{s.desc}</p>
             </li>
           ))}
+        </Reveal>
+
+        <Reveal className="process-cta" delay={200}>
+          <a href="#contact" className="btn btn--light">
+            {t.process.cta} <span className="btn-arrow">→</span>
+          </a>
         </Reveal>
       </div>
     </section>

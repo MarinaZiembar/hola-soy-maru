@@ -44,10 +44,10 @@ export type Dict = {
   };
   marquee: string[];
   services: { label: string; title: string; aside: string; idealLabel: string; cta: string; items: Service[] };
-  process: { label: string; title: string; steps: Item[] };
+  process: { label: string; title: string; cta: string; steps: Item[] };
   work: { label: string; title: string; view: string; soon: string; prev: string; next: string; items: Project[] };
   about: { label: string; statement: Part[]; body: string[]; facts: { k: string; v: string }[]; button: string };
-  testimonials: { label: string; title: string; items: Testimonial[] }; // (sección oculta por ahora)
+  testimonials: { label: string; title: string; items: Testimonial[] };
   faq: { label: string; title: string; items: { q: string; a: string }[] };
   contact: { label: string; title: string; sub: string; copy: string; copied: string; write: string };
   footer: { made: string; top: string };
@@ -97,6 +97,7 @@ export const dict: Record<Lang, Dict> = {
     process: {
       label: "Proceso",
       title: "De la idea a tu web, en 4 pasos",
+      cta: "Arranquemos con la primera charla",
       steps: [
         { title: "Primera charla", desc: "Me contás tu idea, tus tiempos y qué necesitás. Yo pregunto mucho." },
         { title: "Realización y feedback", desc: "Diseño y desarrollo con avances frecuentes. Vos opinás, yo ajusto." },
@@ -112,16 +113,16 @@ export const dict: Record<Lang, Dict> = {
       prev: "Anterior",
       next: "Siguiente",
       items: [
-        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "Marketplace online en Paraguay. Participé en sentar sus bases desde cero, junto al equipo.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket-square.jpg", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "Âme Pilates", kind: "Sitio institucional", period: "2026", desc: "El sitio de un estudio de pilates y body ballet: elegante, simple y a medida.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame-cover.jpg", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
+        { title: "Relocation by Lambo", kind: "Sitio institucional", period: "2026", desc: "Sitio para un servicio de relocation: claro, confiable y fácil de navegar.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation-cover.jpg", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
+        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "Marketplace online en Paraguay. Participé en sentar sus bases desde cero, junto al equipo.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket-cover.jpg", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
         { title: "El caso ueno", kind: "Sitio editorial", period: "2026", desc: "Una investigación periodística contada como póster interactivo, con las novedades hora a hora.", url: "https://expediente-ueno.vercel.app", linkLabel: "expediente-ueno.vercel.app", logo: "/projects/ueno-square.jpg", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
-        { title: "Âme Pilates", kind: "Sitio institucional", period: "2026", desc: "El sitio de un estudio de pilates y body ballet: elegante, simple y a medida.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame-square.jpg", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
-        { title: "Relocation by Lambo", kind: "Sitio institucional", period: "2026", desc: "Sitio para un servicio de relocation: claro, confiable y fácil de navegar.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation-square.jpg", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
         { title: "Tu proyecto", kind: "Próximamente", desc: "Este lugar está guardado para lo que hagamos juntxs.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "paper", contact: true },
       ],
     },
     about: {
       label: "Sobre mí",
-      statement: ["Soy desarrolladora web front‑end", { shape: "circle" }, "que convierte ideas en proyectos reales", { shape: "square" }, "¡Mucho gusto!", { shape: "triangle" }],
+      statement: ["Transformo sueños e ideas", { shape: "circle" }, "en proyectos reales", { shape: "square" }, "Mucho gusto!", { shape: "triangle" }],
       body: [
         "Soy Marina, pero todos me dicen Maru. Soy desarrolladora web front-end y trabajo como Sr Frontend Engineer, construyendo sitios y productos digitales con React, Next.js y TypeScript.",
         "Tu sitio va a estar hecho con las mismas herramientas y el mismo cuidado que uso en productos grandes: rápido, prolijo, fácil de mantener y con mucha atención al detalle.",
@@ -136,7 +137,7 @@ export const dict: Record<Lang, Dict> = {
     },
     testimonials: {
       label: "Testimonios",
-      title: "Lo que dicen",
+      title: "No lo digo yo, lo dicen ellos",
       // TODO: reemplazar por testimonios reales de clientes
       items: [
         { quote: "Testimonio de ejemplo: reemplazalo por uno real de un cliente antes de publicar.", name: "Nombre Apellido", role: "Cargo, Empresa" },
@@ -156,7 +157,7 @@ export const dict: Record<Lang, Dict> = {
     },
     contact: {
       label: "Contacto",
-      title: "¡Creemos algo juntxs!",
+      title: "Creemos algo juntxs!",
       sub: "Contame tu idea y te respondo antes de que se enfríe el mate.",
       copy: "Copiar mail",
       copied: "¡Copiado!",
@@ -207,6 +208,7 @@ export const dict: Record<Lang, Dict> = {
     process: {
       label: "Process",
       title: "From idea to website, in 4 steps",
+      cta: "Let's start with a first chat",
       steps: [
         { title: "First chat", desc: "You tell me your idea, your timing and what you need. I ask a lot of questions." },
         { title: "Build & feedback", desc: "Design and development with frequent check-ins. You give feedback, I adjust." },
@@ -222,16 +224,16 @@ export const dict: Record<Lang, Dict> = {
       prev: "Previous",
       next: "Next",
       items: [
-        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "An online marketplace in Paraguay. I helped lay its foundations from scratch, as part of the team.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket-square.jpg", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
+        { title: "Âme Pilates", kind: "Business website", period: "2026", desc: "The website for a pilates and body ballet studio: elegant, simple and custom-made.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame-cover.jpg", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
+        { title: "Relocation by Lambo", kind: "Business website", period: "2026", desc: "A website for a relocation service: clear, trustworthy and easy to navigate.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation-cover.jpg", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
+        { title: "Umarket", kind: "E-commerce · itti", period: "2025 — 2026", desc: "An online marketplace in Paraguay. I helped lay its foundations from scratch, as part of the team.", url: "https://umarket.com.py/es", linkLabel: "umarket.com.py", logo: "/projects/umarket-cover.jpg", cover: ["square", "quarter", "circle", "half"], accent: "blue", theme: "ink" },
         { title: "El caso ueno", kind: "Editorial site", period: "2026", desc: "An investigative story told as an interactive poster, with updates hour by hour.", url: "https://expediente-ueno.vercel.app", linkLabel: "expediente-ueno.vercel.app", logo: "/projects/ueno-square.jpg", cover: ["ring", "square", "triangle", "circle"], accent: "blue", theme: "red" },
-        { title: "Âme Pilates", kind: "Business website", period: "2026", desc: "The website for a pilates and body ballet studio: elegant, simple and custom-made.", url: "https://www.amepilates.com.ar", linkLabel: "amepilates.com.ar", logo: "/projects/ame-square.jpg", cover: ["half", "diamond", "quarter", "circle"], accent: "red", theme: "yellow" },
-        { title: "Relocation by Lambo", kind: "Business website", period: "2026", desc: "A website for a relocation service: clear, trustworthy and easy to navigate.", url: "https://www.relocationbylambo.com.ar", linkLabel: "relocationbylambo.com.ar", logo: "/projects/relocation-square.jpg", cover: ["quarter", "circle", "square", "triangle"], accent: "yellow", theme: "blue" },
         { title: "Your project", kind: "Coming soon", desc: "This spot is saved for what we'll make together.", cover: ["circle", "circle", "square", "ring"], accent: "red", theme: "paper", contact: true },
       ],
     },
     about: {
       label: "About",
-      statement: ["I'm a front‑end web developer", { shape: "circle" }, "who turns ideas into real projects", { shape: "square" }, "Nice to meet you!", { shape: "triangle" }],
+      statement: ["I turn dreams and ideas", { shape: "circle" }, "into real projects", { shape: "square" }, "Nice to meet you!", { shape: "triangle" }],
       body: [
         "I'm Marina, but everyone calls me Maru. I'm a front-end web developer working as a Sr Frontend Engineer, building websites and digital products with React, Next.js and TypeScript.",
         "Your site will be built with the same tools and the same care I use on big products: fast, clean, easy to maintain and with lots of attention to detail.",
@@ -246,7 +248,7 @@ export const dict: Record<Lang, Dict> = {
     },
     testimonials: {
       label: "Testimonials",
-      title: "Kind words",
+      title: "Don't take my word for it",
       items: [
         { quote: "Sample testimonial: replace it with a real one from a client before publishing.", name: "Full Name", role: "Role, Company" },
         { quote: "Another sample testimonial, to see how a slightly longer quote looks in the layout.", name: "Full Name", role: "Role, Company" },

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { EMAIL, LINKEDIN_URL } from "@/lib/content";
 import Reveal from "./Reveal";
-import Shape from "./Shape";
+import Floaters from "./Floaters";
 
 export default function Contact() {
   const { t } = useLang();
@@ -22,21 +22,15 @@ export default function Contact() {
 
   return (
     <section className="contact" id="contact">
-      <div className="contact-orbit" aria-hidden>
-        <Shape name="circle" className="orbit orbit--1" fill="var(--red)" />
-        <Shape name="square" className="orbit orbit--2" fill="var(--blue)" />
-        <Shape name="triangle" className="orbit orbit--3" fill="var(--yellow)" />
-      </div>
+      <Floaters />
 
       <div className="container contact-inner">
         <Reveal className="section-meta section-meta--light">
-                    <span className="mono">{t.contact.label}</span>
+          <span className="mono">{t.contact.label}</span>
           <span className="section-rule" />
         </Reveal>
 
-        <Reveal as="h2" className="contact-title" delay={80}>
-          {t.contact.title}
-        </Reveal>
+        <h2 className="contact-title">{t.contact.title}</h2>
 
         <Reveal className="contact-row" delay={160}>
           <p>{t.contact.sub}</p>

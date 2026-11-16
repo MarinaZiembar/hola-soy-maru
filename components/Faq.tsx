@@ -12,7 +12,7 @@ export default function Faq() {
   return (
     <section className="section faq" id="faq">
       <div className="container faq-layout">
-        <SectionHead index="05" label={t.faq.label} title={t.faq.title} />
+        <SectionHead label={t.faq.label} title={t.faq.title} />
         <div className="faq-list">
           {t.faq.items.map((f, i) => {
             const isOpen = open === i;
