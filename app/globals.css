@@ -604,8 +604,8 @@ main {
 .char {
   display: inline-block;
   overflow: hidden;
-  padding: 0.06em 0.005em 0.14em;
-  margin: -0.06em 0 -0.14em;
+  padding: 0.22em 0.005em 0.14em;
+  margin: -0.22em 0 -0.14em;
 }
 
 .char > span {
@@ -653,10 +653,28 @@ main {
   animation: draw 1.2s var(--ease) 0.9s forwards;
 }
 
+.hero-headline strong {
+  font-weight: 800;
+}
+
+.slide-heart {
+  display: inline-block;
+  align-self: center;
+  font-size: 0.62em;
+  margin-left: 0.25em;
+  color: var(--red);
+  letter-spacing: -0.08em;
+  animation: heartbeat 1.4s var(--ease-io) 1.2s infinite;
+}
+
+.about-line {
+  display: block;
+}
+
 .hero-headline {
   margin-top: clamp(1.6rem, 3vw, 2.6rem);
   font-size: clamp(1.6rem, 2.7vw, 3rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.05;
   max-width: 18ch;
@@ -920,11 +938,11 @@ main {
 
 /* ---------- About ---------- */
 .about-statement {
-  font-size: clamp(2.2rem, 5.6vw, 5.6rem);
+  font-size: clamp(2rem, 4.6vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 1;
-  max-width: 21ch;
+  line-height: 1.02;
+  max-width: none;
   margin-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
@@ -1109,9 +1127,8 @@ main {
   margin: 1.2rem 0 1.6rem;
   font-size: clamp(3.2rem, 9.4vw, 10.5rem);
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: -0.055em;
-  line-height: 0.86;
+  line-height: 0.92;
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.22em;
@@ -1765,9 +1782,8 @@ main {
   flex-direction: column;
   font-size: clamp(3rem, 10.5vw, 11rem);
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: -0.055em;
-  line-height: 0.86;
+  line-height: 0.95;
 }
 
 
@@ -1959,6 +1975,12 @@ main {
 
 @keyframes pushOut {
   to { transform: scale(0.9); opacity: 0.25; }
+}
+
+@keyframes heartbeat {
+  0%, 60%, 100% { transform: scale(1); }
+  20% { transform: scale(1.12); }
+  40% { transform: scale(0.96); }
 }
 
 @keyframes imgIn {

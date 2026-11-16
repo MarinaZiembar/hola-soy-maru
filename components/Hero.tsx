@@ -46,7 +46,8 @@ export default function Hero() {
         </h1>
 
         <p className="hero-headline" key={`h-${lang}`}>
-          {t.hero.headline}
+          {/* lo que va entre **asteriscos** sale en negrita */}
+          {t.hero.headline.split("**").map((chunk, i) => (i % 2 ? <strong key={i}>{chunk}</strong> : chunk))}
         </p>
         <p className="hero-sub">{t.hero.sub}</p>
 

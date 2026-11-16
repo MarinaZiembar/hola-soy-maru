@@ -15,8 +15,7 @@ export default function About() {
     <section className="section about" id="about">
       <div className="container">
         <Reveal className="section-meta">
-          <span className="mono">(03)</span>
-          <span className="mono">{t.about.label}</span>
+                    <span className="mono">{t.about.label}</span>
           <span className="section-rule" />
         </Reveal>
 
@@ -28,7 +27,7 @@ export default function About() {
             const last = words.pop();
             // la forma va pegada a la última palabra para que nunca quede sola en una línea
             return (
-              <span key={i}>
+              <span key={i} className="about-line">
                 {words.length > 0 && `${words.join(" ")} `}
                 <span className="nowrap">
                   {last}

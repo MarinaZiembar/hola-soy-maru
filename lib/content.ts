@@ -58,9 +58,9 @@ export const dict: Record<Lang, Dict> = {
     nav: { work: "Proyectos", process: "Proceso", about: "Sobre mí", services: "Servicios", faq: "FAQ", cta: "Pedí tu presupuesto" },
     hero: {
       eyebrow: "Diseño + desarrollo web · Buenos Aires",
-      title1: "Hola!",
+      title1: "Holaa!",
       title2: "Soy Maru",
-      headline: "Hago sitios web que hacen crecer tu negocio.",
+      headline: "Hago **sitios web** que hacen crecer tu negocio.",
       sub: "Diseño y desarrollo a medida: lindos, rápidos y pensados para que tus visitas se conviertan en clientes.",
       cta: "Pedí tu presupuesto",
       secondary: "Ver proyectos",
@@ -121,7 +121,7 @@ export const dict: Record<Lang, Dict> = {
     },
     about: {
       label: "Sobre mí",
-      statement: ["Desarrolladora web front‑end", { shape: "circle" }, "que convierte ideas", { shape: "square" }, "en sitios que funcionan", { shape: "triangle" }],
+      statement: ["Soy desarrolladora web front‑end", { shape: "circle" }, "que convierte ideas en proyectos reales", { shape: "square" }, "¡Mucho gusto!", { shape: "triangle" }],
       body: [
         "Soy Marina, pero todos me dicen Maru. Soy desarrolladora web front-end y trabajo como Sr Frontend Engineer, construyendo sitios y productos digitales con React, Next.js y TypeScript.",
         "Tu sitio va a estar hecho con las mismas herramientas y el mismo cuidado que uso en productos grandes: rápido, prolijo, fácil de mantener y con mucha atención al detalle.",
@@ -168,9 +168,9 @@ export const dict: Record<Lang, Dict> = {
     nav: { work: "Projects", process: "Process", about: "About", services: "Services", faq: "FAQ", cta: "Get a quote" },
     hero: {
       eyebrow: "Web design + development · Buenos Aires",
-      title1: "Hola!",
+      title1: "Holaa!",
       title2: "I'm Maru",
-      headline: "I build websites that help your business grow.",
+      headline: "I build **websites** that help your business grow.",
       sub: "Custom design and development: beautiful, fast and built to turn your visitors into clients.",
       cta: "Get a quote",
       secondary: "See projects",
@@ -231,7 +231,7 @@ export const dict: Record<Lang, Dict> = {
     },
     about: {
       label: "About",
-      statement: ["Front‑end web developer", { shape: "circle" }, "turning ideas", { shape: "square" }, "into websites that work", { shape: "triangle" }],
+      statement: ["I'm a front‑end web developer", { shape: "circle" }, "who turns ideas into real projects", { shape: "square" }, "Nice to meet you!", { shape: "triangle" }],
       body: [
         "I'm Marina, but everyone calls me Maru. I'm a front-end web developer working as a Sr Frontend Engineer, building websites and digital products with React, Next.js and TypeScript.",
         "Your site will be built with the same tools and the same care I use on big products: fast, clean, easy to maintain and with lots of attention to detail.",

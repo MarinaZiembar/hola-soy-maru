@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 import { useLang } from "@/lib/i18n";
 import Cover from "./Cover";
 
@@ -9,16 +9,19 @@ const AUTOPLAY_MS = 7000;
 type Origin = { x: string; y: string };
 
 /** Divide el título en letras para animarlas al entrar. */
-function Chars({ text }: { text: string }) {
+function Chars({ text, suffix }: { text: string; suffix?: ReactNode }) {
+  const words = text.split(" ");
   return (
     <>
-      {text.split(" ").map((word, w) => (
+      {words.map((word, w) => (
         <span className="word" key={w}>
           {Array.from(word).map((ch, i) => (
             <span className="char" key={i}>
               <span style={{ ["--d" as string]: `${(w * 4 + i) * 35 + 350}ms` }}>{ch}</span>
             </span>
           ))}
+          {/* el sufijo va pegado a la última palabra para que no quede solo */}
+          {w === words.length - 1 && suffix}
         </span>
       ))}
     </>
@@ -137,7 +140,16 @@ export default function Projects() {
                     {p.period && <span>{p.period}</span>}
                   </p>
                   <h3 className="slide-title">
-                    <Chars text={p.title} />
+                    <Chars
+                      text={p.title}
+                      suffix={
+                        p.contact ? (
+                          <span className="slide-heart" aria-label="corazón">
+                            &lt;3
+                          </span>
+                        ) : undefined
+                      }
+                    />
                   </h3>
                   <p className="slide-desc">{p.desc}</p>
                   {p.url && (
@@ -162,7 +174,7 @@ export default function Projects() {
 
       <div className="work-ui">
         <div className="work-head">
-          <span className="mono">(01) {t.work.label}</span>
+          <span className="mono">{t.work.label}</span>
           <h2>{t.work.title}</h2>
         </div>
 

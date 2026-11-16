@@ -16,7 +16,6 @@ const icons: { s: ShapeName; accent?: string }[] = [
 
 export default function Process() {
   const { t } = useLang();
-  const n = t.process.steps.length;
 
   return (
     <section className="section process" id="process">
@@ -29,9 +28,7 @@ export default function Process() {
               <div className="process-icon">
                 <Shape name={icons[i].s} className={`process-shape process-shape--${i}`} fill={icons[i].accent} />
               </div>
-              <span className="process-count mono">
-                0{i + 1} / 0{n}
-              </span>
+              <span className="process-count mono">0{i + 1}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
             </li>
