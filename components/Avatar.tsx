@@ -1,43 +1,12 @@
-"use client";
-
-import { useRef, type PointerEvent } from "react";
-
 /**
  * Avatar de Maru en estilo retrato plano/geométrico (de hombros para arriba).
  * Cara alargada y redondeada abajo, partida en dos tonos, pelo corto marrón claro con flequillo en picos
  * y costados rapados, pañuelito con nudo, anteojos redondos finos, ojos verde militar,
  * septum y aros dorados, remera roja.
  * Animación: mirada curiosa que recorre a los lados y hacia arriba, cejas que se levantan
- * y parpadeo. Con el mouse encima, la mirada sigue al cursor.
+ * y parpadeo.
  */
-const clamp = (v: number) => Math.max(-1, Math.min(1, v));
-
 export default function Avatar({ className = "" }: { className?: string }) {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const eyesRef = useRef<SVGGElement>(null);
-  const headRef = useRef<SVGGElement>(null);
-  const browRef = useRef<SVGGElement>(null);
-
-  // La mirada sigue al cursor mientras está sobre el avatar
-  const onMove = (e: PointerEvent<SVGSVGElement>) => {
-    const svg = svgRef.current;
-    if (!svg || e.pointerType === "touch") return;
-    const r = svg.getBoundingClientRect();
-    const dx = clamp(((e.clientX - r.left) / r.width - 0.5) * 2.4);
-    const dy = clamp(((e.clientY - r.top) / r.height - 0.46) * 2.4);
-    svg.classList.add("is-tracking");
-    if (eyesRef.current) eyesRef.current.style.transform = `translate(${dx * 7}px, ${dy * 5}px)`;
-    if (headRef.current) headRef.current.style.transform = `rotate(${dx * 3}deg) translateY(${dy * 2}px)`;
-    if (browRef.current) browRef.current.style.transform = `translateY(${dy < 0 ? dy * 6 : 0}px)`;
-  };
-
-  const onLeave = () => {
-    const svg = svgRef.current;
-    if (!svg) return;
-    svg.classList.remove("is-tracking");
-    [eyesRef, headRef, browRef].forEach((ref) => ref.current?.style.removeProperty("transform"));
-  };
-
   const skin = "#f2c4a4";
   const skinShade = "#e6ae8c";
   const nose = "#e79a80";
@@ -51,15 +20,7 @@ export default function Avatar({ className = "" }: { className?: string }) {
   const gold = "var(--yellow)";
 
   return (
-    <svg
-      ref={svgRef}
-      viewBox="40 46 320 320"
-      className={`avatar ${className}`}
-      role="img"
-      aria-label="Avatar de Maru"
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-    >
+    <svg viewBox="40 46 320 320" className={`avatar ${className}`} role="img" aria-label="Avatar de Maru">
       {/* fondo */}
       <rect x="0" y="0" width="400" height="400" fill="var(--blue)" />
 
@@ -72,7 +33,7 @@ export default function Avatar({ className = "" }: { className?: string }) {
       <path d="M200 256 H220 V300 Q210 307 200 308 Z" fill={skinShade} />
       <path d="M180 276 L200 290 L220 276 V256 H180 Z" fill={noseShade} opacity="0.35" />
 
-      <g className="av-head" ref={headRef}>
+      <g className="av-head">
         {/* orejas + aros */}
         <path d="M146 172 H134 L130 198 L140 214 H148 Z" fill={skin} />
         <path d="M254 172 H266 L270 198 L260 214 H252 Z" fill={skinShade} />
@@ -118,14 +79,14 @@ export default function Avatar({ className = "" }: { className?: string }) {
         </g>
 
         {/* cejas arqueadas (se levantan: gesto curioso) */}
-        <g className="av-brow" fill={hairShade} ref={browRef}>
+        <g className="av-brow" fill={hairShade}>
           <path d="M156 172 Q170 163 186 168 L185 173 Q170 168 157 177 Z" />
           <path d="M214 168 Q230 163 244 172 L243 177 Q230 168 215 173 Z" />
         </g>
 
         {/* ojos: círculos verde militar (miran y parpadean) */}
         <g className="av-blink">
-          <g className="av-eyes" ref={eyesRef}>
+          <g className="av-eyes">
             <circle cx="172" cy="194" r="8.5" fill={eye} />
             <circle cx="228" cy="194" r="8.5" fill={eye} />
           </g>
