@@ -1,10 +1,11 @@
 // Todo el texto del sitio vive acá.
-// TODO: reemplazá LINKEDIN_URL, trabajos y testimonios por los reales.
+// TODO: reemplazá los testimonios por reales cuando los tengas.
 
 export type Lang = "es" | "en";
 export type ShapeName = "circle" | "half" | "quarter" | "square" | "triangle" | "ring" | "diamond";
 
-export const EMAIL = "marinaziembar@gmail.com";
+export const EMAIL = "holaasoymaru@gmail.com";
+export const INSTAGRAM_URL = "https://www.instagram.com/holaasoymaru/";
 export const LINKEDIN_URL = "https://linkedin.com/in/marina-ziembar";
 
 type Project = {

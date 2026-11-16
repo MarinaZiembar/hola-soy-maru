@@ -58,7 +58,6 @@ export default function Header() {
         </span>
         {links.map((l, i) => (
           <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ ["--i" as string]: i }}>
-            <span className="nav-index mono">0{i + 1}</span>
             <span className="nav-label">
               <span data-text={l.label}>{l.label}</span>
             </span>

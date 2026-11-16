@@ -1,4 +1,4 @@
-import { dict, EMAIL, LINKEDIN_URL } from "@/lib/content";
+import { dict, EMAIL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/content";
 import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 /**
@@ -28,7 +28,7 @@ export default function StructuredData() {
       jobTitle: "Desarrolladora web front-end freelance",
       url: SITE_URL,
       email: `mailto:${EMAIL}`,
-      sameAs: [LINKEDIN_URL],
+      sameAs: [LINKEDIN_URL, INSTAGRAM_URL],
       knowsAbout: ["Desarrollo web", "Desarrollo front-end", "React", "Next.js", "TypeScript", "E-commerce", "Diseño web", "SEO"],
       knowsLanguage: ["es", "en"],
       address: { "@type": "PostalAddress", addressLocality: "Buenos Aires", addressCountry: "AR" },
@@ -48,7 +48,7 @@ export default function StructuredData() {
         { "@type": "Place", name: "Remoto / todo el mundo" },
       ],
       address: { "@type": "PostalAddress", addressLocality: "Buenos Aires", addressCountry: "AR" },
-      sameAs: [LINKEDIN_URL],
+      sameAs: [INSTAGRAM_URL, LINKEDIN_URL],
       knowsLanguage: ["es", "en"],
       hasOfferCatalog: {
         "@type": "OfferCatalog",

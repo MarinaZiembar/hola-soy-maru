@@ -253,8 +253,8 @@ main {
     box-shadow: none;
   }
 
-  .logo .logo-wink {
-    height: 34px;
+  .header .logo .logo-wink {
+    height: 28px;
   }
 
   .nav a {
@@ -2082,7 +2082,39 @@ main {
 
 .footer-links {
   display: flex;
+  align-items: center;
   gap: 1.6rem;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-link {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    transform 0.5s var(--ease-back);
+}
+
+.social-link:hover {
+  background: var(--paper);
+  color: var(--ink);
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.social--contact .social-link {
+  width: 52px;
+  height: 52px;
+  color: var(--paper);
 }
 
 .footer-links a:hover {

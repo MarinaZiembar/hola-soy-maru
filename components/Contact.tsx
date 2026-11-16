@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useLang } from "@/lib/i18n";
-import { EMAIL, LINKEDIN_URL } from "@/lib/content";
+import { EMAIL } from "@/lib/content";
+import SocialIcons from "./SocialIcons";
 import Reveal from "./Reveal";
 import Floaters from "./Floaters";
 
@@ -45,6 +46,7 @@ export default function Contact() {
             <button type="button" className="copy mono" onClick={copy}>
               {copied ? t.contact.copied : t.contact.copy}
             </button>
+            <SocialIcons className="social--contact" />
           </div>
         </Reveal>
 
@@ -58,9 +60,7 @@ export default function Contact() {
       <footer className="footer container mono">
         <span>© {new Date().getFullYear()} — {t.footer.made}</span>
         <span className="footer-links">
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
+          <SocialIcons linkedin />
           <a href="#top">{t.footer.top} ↑</a>
         </span>
       </footer>

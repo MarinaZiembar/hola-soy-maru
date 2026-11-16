@@ -31,5 +31,6 @@ React, Next.js, TypeScript, HTML, CSS, animaciones web.
 ## Contacto
 
 - Sitio: https://holaasoymaru.com.ar
-- Email: marinaziembar@gmail.com
+- Email: holaasoymaru@gmail.com
+- Instagram: https://www.instagram.com/holaasoymaru/ (@holaasoymaru)
 - LinkedIn: https://linkedin.com/in/marina-ziembar
