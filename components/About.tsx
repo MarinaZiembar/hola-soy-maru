@@ -21,18 +21,28 @@ export default function About() {
         </Reveal>
 
         <Reveal as="h2" className="about-statement" delay={80}>
-          {t.about.statement.map((part, i) =>
-            typeof part === "string" ? (
-              <span key={i}>{part} </span>
-            ) : (
-              <Shape
-                key={i}
-                name={part.shape}
-                className="inline-shape"
-                fill={inlineColors[shapeCount++ % inlineColors.length]}
-              />
-            )
-          )}
+          {t.about.statement.map((part, i) => {
+            if (typeof part !== "string") return null;
+            const next = t.about.statement[i + 1];
+            const words = part.split(" ");
+            const last = words.pop();
+            // la forma va pegada a la última palabra para que nunca quede sola en una línea
+            return (
+              <span key={i}>
+                {words.length > 0 && `${words.join(" ")} `}
+                <span className="nowrap">
+                  {last}
+                  {next && typeof next !== "string" && (
+                    <Shape
+                      name={next.shape}
+                      className="inline-shape"
+                      fill={inlineColors[shapeCount++ % inlineColors.length]}
+                    />
+                  )}
+                </span>{" "}
+              </span>
+            );
+          })}
         </Reveal>
 
         <div className="about-grid">

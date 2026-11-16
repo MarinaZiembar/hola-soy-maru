@@ -18,6 +18,8 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Hola! Soy Maru ;) — Diseño + desarrollo web",
   description: "Sitios institucionales, e-commerce y sitios a medida. Diseño, código y un poquito de movimiento, desde Buenos Aires.",
+  // Por ahora el sitio no se indexa. Para publicarlo en buscadores, sacá esto y el header de next.config.ts.
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 export const viewport: Viewport = {

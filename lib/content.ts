@@ -121,14 +121,14 @@ export const dict: Record<Lang, Dict> = {
     },
     about: {
       label: "Sobre mí",
-      statement: ["Mitad diseñadora", { shape: "circle" }, "mitad dev", { shape: "square" }, "y bastante curiosa", { shape: "triangle" }],
+      statement: ["Desarrolladora web front‑end", { shape: "circle" }, "que convierte ideas", { shape: "square" }, "en sitios que funcionan", { shape: "triangle" }],
       body: [
-        "Soy Marina, pero todos me dicen Maru. Estudié Diseño Gráfico en la UBA, después me enamoré del código y desde entonces hago las dos cosas a la vez.",
-        "Trabajo como Sr Frontend Engineer, así que tu sitio va a estar hecho con las mismas herramientas y el mismo cuidado que uso en productos grandes.",
+        "Soy Marina, pero todos me dicen Maru. Soy desarrolladora web front-end y trabajo como Sr Frontend Engineer, construyendo sitios y productos digitales con React, Next.js y TypeScript.",
+        "Tu sitio va a estar hecho con las mismas herramientas y el mismo cuidado que uso en productos grandes: rápido, prolijo, fácil de mantener y con mucha atención al detalle.",
       ],
       facts: [
+        { k: "Rol", v: "Sr Frontend Engineer" },
         { k: "Base", v: "Buenos Aires, AR" },
-        { k: "Formación", v: "Diseño Gráfico, UBA" },
         { k: "Stack", v: "React · Next.js · TS" },
         { k: "Idiomas", v: "Español / English" },
       ],
@@ -231,14 +231,14 @@ export const dict: Record<Lang, Dict> = {
     },
     about: {
       label: "About",
-      statement: ["Half designer", { shape: "circle" }, "half dev", { shape: "square" }, "and pretty curious", { shape: "triangle" }],
+      statement: ["Front‑end web developer", { shape: "circle" }, "turning ideas", { shape: "square" }, "into websites that work", { shape: "triangle" }],
       body: [
-        "I'm Marina, but everyone calls me Maru. I studied Graphic Design at UBA, then fell in love with code, and I've been doing both ever since.",
-        "I work as a Sr Frontend Engineer, so your site will be built with the same tools and the same care I use on big products.",
+        "I'm Marina, but everyone calls me Maru. I'm a front-end web developer working as a Sr Frontend Engineer, building websites and digital products with React, Next.js and TypeScript.",
+        "Your site will be built with the same tools and the same care I use on big products: fast, clean, easy to maintain and with lots of attention to detail.",
       ],
       facts: [
+        { k: "Role", v: "Sr Frontend Engineer" },
         { k: "Based in", v: "Buenos Aires, AR" },
-        { k: "Studied", v: "Graphic Design, UBA" },
         { k: "Stack", v: "React · Next.js · TS" },
         { k: "Languages", v: "Español / English" },
       ],
